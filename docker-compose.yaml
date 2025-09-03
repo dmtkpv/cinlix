@@ -1,0 +1,57 @@
+volumes:
+  database:
+  pnpm_store:
+services:
+
+
+
+  # --------------------
+  # Dev
+  # --------------------
+
+  dev:
+    build:
+      context: .
+      args:
+        WORK_DIR: ${WORK_DIR}
+        PNPM_DIR: ${PNPM_DIR}
+    tty: true
+    working_dir: /app
+    environment:
+      NODE_ENV: development
+    ports:
+      - ${DIRECTUS_PORT}:${DIRECTUS_PORT}
+      - ${WEBSITE_PORT}:${WEBSITE_PORT}
+      - ${WEBSITE_HMR_PORT}:${WEBSITE_HMR_PORT}
+    volumes:
+      - pnpm_store:${PNPM_DIR}
+      - ./:/app
+    env_file:
+      - .env
+    depends_on:
+      database:
+        condition: service_healthy
+
+
+
+  # --------------------
+  # Database
+  # --------------------
+
+  database:
+    image: postgres:17-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    command: postgres -p ${DB_PORT}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes:
+      - database:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_DATABASE} -p ${DB_PORT}" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5

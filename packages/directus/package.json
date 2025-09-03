@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "name": "@this/directus",
+  "scripts": {
+    "serve": "directus start",
+    "bootstrap": "directus bootstrap"
+  },
+  "dependencies": {
+    "directus": "11.11.0"
+  }
+}
