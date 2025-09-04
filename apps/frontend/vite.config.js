@@ -11,7 +11,7 @@ import database from './database.js'
 // ------------------
 
 const {
-    WEBSITE_PORT
+    FRONTEND_PORT
 } = process.env;
 
 
@@ -24,7 +24,7 @@ export default {
 
     server: {
         host: '0.0.0.0',
-        port: WEBSITE_PORT
+        port: FRONTEND_PORT
     },
 
     plugins: [

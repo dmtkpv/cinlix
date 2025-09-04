@@ -20,8 +20,8 @@ services:
     environment:
       NODE_ENV: development
     ports:
-      - ${DIRECTUS_PORT}:${DIRECTUS_PORT}
-      - ${WEBSITE_PORT}:${WEBSITE_PORT}
+      - ${BACKEND_PORT}:${BACKEND_PORT}
+      - ${FRONTEND_PORT}:${FRONTEND_PORT}
     volumes:
       - pnpm_store:${PNPM_DIR}
       - ./:/app
