@@ -1,9 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "directus": "CONFIG_PATH='config.js' pnpm --filter @this/directus",
-    "website": "pnpm --filter @this/website",
-    "knex": "pnpm --filter @this/knex"
+    "backend": "CONFIG_PATH='config.js' pnpm --filter @this/backend",
+    "frontend": "pnpm --filter @this/frontend"
   },
   "pnpm": {
     "neverBuiltDependencies": []

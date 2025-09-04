@@ -1,0 +1,20 @@
+{
+  "type": "module",
+  "name": "@this/backend",
+  "scripts": {
+    "bootstrap": "directus bootstrap",
+    "serve": "directus start",
+    "seed": "knex seed:run",
+    "migrate:up": "knex migrate:up",
+    "migrate:down": "knex migrate:down",
+    "migrate:latest": "knex migrate:latest"
+  },
+  "dependencies": {
+    "directus": "11.11.0",
+    "knex": "3.1.0",
+    "lodash-es": "4.17.21"
+  },
+  "exports": {
+    "./*": "./*"
+  }
+}

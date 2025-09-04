@@ -1,6 +1,6 @@
 .env
 .idea
 node_modules
-packages/directus/uploads
-!packages/directus/uploads/default.png
-packages/website/dist
+apps/backend/uploads
+!apps/backend/uploads/default.png
+apps/frontend/dist
