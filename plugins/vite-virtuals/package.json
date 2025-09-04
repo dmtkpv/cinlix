@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "name": "vite-virtuals",
+  "exports": {
+    ".": "./index.js"
+  }
+}

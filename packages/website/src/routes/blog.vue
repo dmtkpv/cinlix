@@ -30,27 +30,24 @@
     import { useRoute } from 'vue-router'
     import { useRouter } from 'vue-router'
 
-    import pages from 'db:pages'
     import blogs from 'db:Blogs'
 
-    import(blog[1]).then()
 
-
-    //
-    // const route = useRoute()
+    const route = useRoute()
     //
     //
     // console.log(blog);
     //
     //
-    // watch(route, async () => {
-    //     const data = await blog[route.params.id]()
-    //     console.log(data)
-    //
-    //     // import(`db:blog-${route.params.id}`)
-    // }, {
-    //     immediate: true
-    // })
+    watch(() => route.params.id, async (id) => {
+        console.log('!!')
+        const data = await blogs[id]()
+        console.log(data.default)
+
+        // import(`db:blog-${route.params.id}`)
+    }, {
+        immediate: true
+    })
 
 
 </script>

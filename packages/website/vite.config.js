@@ -1,9 +1,8 @@
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import svg from 'vite-svg-loader'
+import virtual from 'vite-virtuals'
 import database from './database.js'
-
-// console.log(database)
 
 
 
@@ -14,27 +13,6 @@ import database from './database.js'
 const {
     WEBSITE_PORT
 } = process.env;
-
-
-
-// ------------------
-// Database loader
-// ------------------
-
-const db = {
-
-    name: 'vite-db',
-
-    resolveId (id) {
-        if (id.startsWith('db:')) return '\0' + id;
-    },
-
-    load (id) {
-        // if (id.startsWith('\0db:')) return database[id.slice(4)];
-        if (id.startsWith('\0db:')) return `export default []`
-    }
-
-};
 
 
 
@@ -50,9 +28,9 @@ export default {
     },
 
     plugins: [
-        db,
         vue(),
-        svg({ svgo: false })
+        svg({ svgo: false }),
+        virtual({ db: database })
     ],
 
     resolve: {

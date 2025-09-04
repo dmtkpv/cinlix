@@ -25,7 +25,7 @@
         </li>
     </ul>
 
-<!--    <router-view />-->
+    <router-view />
 <!--    <l-header />-->
 <!--    <router-view />-->
 <!--    <l-footer />-->
@@ -39,7 +39,8 @@
 
 <script setup>
 
-    import("page-" + location.hash.slice(1));
+    import pages from 'db:pages'
 
-    // import test from 'db:test'
+    console.log(pages)
+
 </script>
