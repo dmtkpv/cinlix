@@ -6,7 +6,8 @@
     "bootstrap": "directus bootstrap"
   },
   "dependencies": {
-    "directus": "11.11.0"
+    "directus": "11.11.0",
+    "lodash-es": "4.17.21"
   },
   "exports": {
     "./*": "./*"

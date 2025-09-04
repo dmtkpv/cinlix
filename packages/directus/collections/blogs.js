@@ -3,29 +3,24 @@ import Fields from '../fields.js';
 export default {
 
     options: {
-        collection: 'pages'
+        collection: 'blogs'
     },
 
     fields: {
-        name: Fields.input({
-            required: true,
+        id: Fields.id(),
+        slug: Fields.input({
             readonly: true
         }),
         title: Fields.input({
             required: true,
-            width: 'half'
         }),
-        path: Fields.input({
+        content: Fields.wysiwyg({
             required: true,
-            width: 'half'
         }),
-        image: Fields.image(),
     },
 
     presets: [
-        'name',
-        'title',
-        'path',
+        'title'
     ]
 
 };

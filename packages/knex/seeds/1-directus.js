@@ -73,17 +73,25 @@ export async function seed (knex) {
     // Seed
     // -------------------
 
-    await knex('directus_collections').del();
-    await knex('directus_collections').insert(collections);
+    if (collections.length) {
+        await knex('directus_collections').del();
+        await knex('directus_collections').insert(collections);
+    }
 
-    await knex('directus_fields').del();
-    await knex('directus_fields').insert(fields);
+    if (fields.length) {
+        await knex('directus_fields').del();
+        await knex('directus_fields').insert(fields);
+    }
 
-    await knex('directus_presets').whereNull('user').del()
-    await knex('directus_presets').insert(presets)
+    if (presets.length) {
+        await knex('directus_presets').del()
+        await knex('directus_presets').insert(presets)
+    }
 
-    await knex('directus_relations').del();
-    await knex('directus_relations').insert(Relations);
+    if (Relations.length) {
+        await knex('directus_relations').del();
+        await knex('directus_relations').insert(Relations);
+    }
 
 
 

@@ -59,6 +59,24 @@ export default {
         }
     },
 
+    wysiwyg (config) {
+        return merge({
+            interface: 'input-rich-text-html',
+            options: {
+                trim: true,
+                toolbar: [
+                    'bold',
+                    'numlist',
+                    'bullist',
+                    'customLink',
+                    'customImage',
+                    'code'
+                ]
+            },
+            display: 'formatted-value',
+        }, config)
+    },
+
 
 
     // -----------------------

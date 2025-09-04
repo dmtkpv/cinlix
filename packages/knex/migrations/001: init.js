@@ -11,14 +11,14 @@ export async function up (knex) {
     const $ = useUtils(knex);
 
     await knex.schema.createTable('pages', table => {
-        table.increments('id');
+        table.string('name').primary();
         table.string('path').notNullable();
         table.string('title').notNullable();
         table.uuid('image').references('directus_files.id');
         $.setDefaults(table);
     })
 
-    await knex.schema.createTable('blog', table => {
+    await knex.schema.createTable('blogs', table => {
         table.increments('id');
         table.string('slug').notNullable();
         table.string('title').notNullable();
@@ -36,7 +36,7 @@ export async function up (knex) {
 
 export async function down (knex) {
 
-    await knex.schema.dropTable('blog');
+    await knex.schema.dropTable('blogs');
     await knex.schema.dropTable('pages');
 
 }
