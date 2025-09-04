@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "name": "@this/knex",
+  "scripts": {
+    "seed": "knex seed:run",
+    "migrate:up": "knex migrate:up",
+    "migrate:down": "knex migrate:down",
+    "migrate:latest": "knex migrate:latest"
+  },
+  "dependencies": {
+    "@this/directus": "workspace:*",
+    "knex": "3.1.0",
+    "lodash-es": "4.17.21"
+  },
+  "exports": {
+    ".": "./index.js"
+  }
+}
