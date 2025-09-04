@@ -22,7 +22,6 @@ services:
     ports:
       - ${DIRECTUS_PORT}:${DIRECTUS_PORT}
       - ${WEBSITE_PORT}:${WEBSITE_PORT}
-      - ${WEBSITE_HMR_PORT}:${WEBSITE_HMR_PORT}
     volumes:
       - pnpm_store:${PNPM_DIR}
       - ./:/app
