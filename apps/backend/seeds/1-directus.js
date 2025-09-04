@@ -1,7 +1,6 @@
 import Fields from '../settings/fields.js'
 import Relations from '../settings/relations.js'
 import Collections from '../settings/collections.js'
-import { DEFAULT_IMAGE } from '../constants.js'
 
 export async function seed (knex) {
 
@@ -52,9 +51,10 @@ export async function seed (knex) {
     for (const config of Collections) {
 
         const collection = config.options.collection;
+        const sort = Collections.indexOf(config);
 
         if (isCustom(collection)) {
-            collections.push(config.options);
+            collections.push({ ...config.options, sort });
         }
 
         if (config.fields) {
@@ -93,8 +93,6 @@ export async function seed (knex) {
         await knex('directus_relations').del();
         await knex('directus_relations').insert(Relations);
     }
-
-    await knex('directus_files').insert(DEFAULT_IMAGE).onConflict('id').merge();
 
 
 

@@ -3,14 +3,14 @@ import Fields from '../fields.js';
 export default {
 
     options: {
-        collection: 'about_slides',
+        collection: 'services_content',
         group: 'data',
-        hidden: true
+        hidden: true,
     },
 
     fields: {
         id: Fields.id(),
-        about: Fields.input({
+        service: Fields.input({
             hidden: true
         }),
         sort: Fields.input({
@@ -19,9 +19,9 @@ export default {
         image: Fields.image({
             required: true,
         }),
-        title: Fields.input({
+        description: Fields.text({
             required: true,
-        })
+        }),
     },
 
 };

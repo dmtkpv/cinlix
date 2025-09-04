@@ -3,7 +3,7 @@ import Fields from '../fields.js';
 export default {
 
     options: {
-        collection: 'about_slides',
+        collection: 'about_whys',
         group: 'data',
         hidden: true
     },
@@ -21,7 +21,10 @@ export default {
         }),
         title: Fields.input({
             required: true,
-        })
+        }),
+        description: Fields.text({
+            required: true,
+        }),
     },
 
 };
