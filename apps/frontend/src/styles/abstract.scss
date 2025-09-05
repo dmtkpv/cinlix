@@ -52,3 +52,13 @@ $sm: 768px;
 @mixin md-sm {
     @media (max-width: $md) { @content }
 }
+
+
+
+// -----------------
+// Helpers
+// -----------------
+
+@mixin hover {
+    @media (hover: hover) { &:hover { @content }}
+}

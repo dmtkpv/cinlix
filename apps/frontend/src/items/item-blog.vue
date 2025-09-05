@@ -14,13 +14,13 @@
     Scripts
 -->
 
-<script lang="ts" setup>
+<script setup>
 
 // background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%);
 
 
-    defineProps<{
-        image: string;
-    }>()
+    // defineProps<{
+    //     image: string;
+    // }>()
 
 </script>

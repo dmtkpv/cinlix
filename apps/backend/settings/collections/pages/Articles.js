@@ -3,7 +3,7 @@ import Fields from '../../fields.js'
 export default {
 
     options: {
-        collection: 'Blog',
+        collection: 'Articles',
         singleton: true,
     },
 
@@ -22,7 +22,7 @@ export default {
         image: Fields.image({
             required: true,
         }),
-        blog: Fields.o2m({
+        articles: Fields.o2m({
             required: true,
             template: '{{ title }}',
             options: {

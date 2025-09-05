@@ -15,13 +15,13 @@
     Scripts
 -->
 
-<script lang="ts" setup>
+<script setup>
 
-    import { IcWhat } from '~/config/components'
+    // import { IcWhat } from '~/config/components'
 
-    defineProps<{
-        title: string,
-        note: string,
-    }>()
+    // defineProps<{
+    //     title: string,
+    //     note: string,
+    // }>()
 
 </script>

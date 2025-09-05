@@ -43,8 +43,8 @@ Knex.TableBuilder.extend('defaults', function () {
     this.uuid('updated_by').references('directus_users.id').onDelete('SET NULL');
 });
 
-Knex.TableBuilder.extend('page', function (page) {
-    this.string('name').defaultTo(page).primary();
+Knex.TableBuilder.extend('page', function () {
+    this.string('name').defaultTo(this._tableName).primary();
     this.string('title').notNullable();
     this.string('path').notNullable();
 });

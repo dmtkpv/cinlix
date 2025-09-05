@@ -15,11 +15,11 @@
     Scripts
 -->
 
-<script lang="ts" setup>
+<script setup>
 
-    defineProps<{
-        title: string;
-        note: string;
-    }>()
+    // defineProps<{
+    //     title: string;
+    //     note: string;
+    // }>()
 
 </script>

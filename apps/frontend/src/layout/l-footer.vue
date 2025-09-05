@@ -42,7 +42,7 @@
     Scripts
 -->
 
-<script lang="ts" setup>
+<script setup>
 
     // import { dbPages, dbContacts } from '~/config/database'
     // import { IcFacebook, IcLinkedin, IcTwitter, IcInstagram, IcPhone, IcMail, UiButton } from '~/config/components'

@@ -17,14 +17,7 @@
 <template>
     <main>
 
-        <l-hero />
-
-        <h1>aaa</h1>
-        <h1>aaa</h1>
-        <h1>aaa</h1>
-        <h1>aaa</h1>
-        <h1>aaa</h1>
-        <h1>aaa</h1>
+        <l-hero :value="DATA.slides" />
 
 <!--        <ui-slider class="h-150" :value="dbSlides" />-->
 
@@ -52,6 +45,8 @@
 <!--            <item-blog v-for="item in dbBlog" :value="item" :image="item.image" />-->
 <!--        </l-section>-->
 
+        <h1 v-for="n in 1000">A</h1>
+
     </main>
 </template>
 
@@ -61,9 +56,13 @@
     Scripts
 -->
 
-<script lang="ts" setup>
+<script setup>
 
-    import { dbBlog, dbHow, dbSlides, dbWhat, dbWhy } from '~/config/database'
-    import { UiSlider, LSection, ItemWhy, ItemHow, ItemWhat, ItemBlog, UiButton, LHero } from '~/config/components'
+    import DATA from 'db:About'
+
+    console.log(DATA)
+
+    // import { dbBlog, dbHow, dbSlides, dbWhat, dbWhy } from '~/config/database'
+    // import { UiSlider, LSection, ItemWhy, ItemHow, ItemWhat, ItemBlog, UiButton, LHero } from '~/config/components'
 
 </script>

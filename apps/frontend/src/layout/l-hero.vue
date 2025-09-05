@@ -20,7 +20,7 @@
 
 <template>
     <aside class="l-hero">
-
+        {{ value }}
     </aside>
 </template>
 
@@ -30,8 +30,10 @@
     Scripts
 -->
 
-<script lang="ts" setup>
+<script setup>
 
-    
+    defineProps([
+        'value'
+    ])
 
 </script>

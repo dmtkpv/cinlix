@@ -5,6 +5,7 @@ import App from '~/index.vue'
 import routes from '~/config/routes'
 
 
+
 const modules = import.meta.glob([
     './icons/*',
     './items/*',
@@ -19,4 +20,5 @@ export const createApp = ViteSSG(App, { routes }, ({ app }) => {
         const name = key.split('/').pop().split('.').shift()
         app.component(name, modules[key].default);
     })
+
 })

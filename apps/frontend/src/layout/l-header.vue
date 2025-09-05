@@ -19,6 +19,7 @@
         width: 100%;
         height: $header;
         background: $white;
+        border-bottom: 1px solid $gray;
 
         .container {
             display: flex;
@@ -58,19 +59,9 @@
 
         &_nav {
 
-            display: flex;
-
-            .router-link-active {
-                color: $amber;
-            }
-
-            @include lg {
-                gap: 48px;
-            }
-
-            @include md {
-                gap: 24px;
-                font-size: 14px;
+            @include lg-md {
+                display: flex;
+                height: 100%;
             }
 
             @include sm {
@@ -78,44 +69,15 @@
                 top: $header;
                 right: 0;
                 bottom: 0;
-                width: 220px;
+                width: 240px;
                 background: $white;
-                flex-direction: column;
-                gap: 12px;
-                padding: 24px;
-                border-top: 1px solid $gray;
+                padding: 12px 24px;
                 transform: translateX(100%);
                 transition: transform $duration;
             }
 
             @at-root ._opened & {
                 transform: translateX(0);
-            }
-
-        }
-
-
-
-
-        // -----------------
-        // Blackout
-        // -----------------
-
-        &_blackout {
-            position: fixed;
-            top: $header;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            background: $black-light;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity $duration, visibility 0s $duration;
-
-            @at-root ._opened & {
-                opacity: .75;
-                visibility: visible;
-                transition: opacity $duration;
             }
 
         }
@@ -167,22 +129,30 @@
 -->
 
 <template>
+
     <header class="l-header" :class="{ _opened: menu }">
         <div class="container">
+
+
+            <!-- logo -->
 
             <router-link to="/" class="l-header_logo">
                 <ic-logo />
                 <p>Crafting Visual Stories</p>
             </router-link>
 
+
+            <!-- menu -->
+
             <button class="l-header_menu" @click="menu = !menu">
                 <ic-menu />
             </button>
 
-            <div class="l-header_blackout" @click="menu = false" />
+
+            <!-- nav -->
 
             <nav class="l-header_nav">
-                <router-link v-for="item in nav" :to="item.path">{{ item.title }}</router-link>
+                <l-nav v-for="item in nav" v-bind="item" />
             </nav>
 
         </div>
@@ -195,13 +165,19 @@
     Scripts
 -->
 
-<script lang="ts" setup>
+<script setup>
 
     import { ref } from 'vue'
-    // import { dbPages } from '~/config/database'
-    // import { IcLogo, IcMenu } from '~/config/components'
-    //
-    // const nav = dbPages.filter(page => page.header);
-    // const menu = ref(false);
+    import PAGES from 'db:pages'
+    import SERVICES from 'db:services'
+
+    const nav = [
+        { title: PAGES.About.title, path: PAGES.About.path },
+        { title: PAGES.Services.title, path: PAGES.Services.path, children: SERVICES },
+        { title: PAGES.Articles.title, path: PAGES.Articles.path },
+        { title: PAGES.Contact.title, path: PAGES.Contact.path },
+    ]
+
+    const menu = ref(false);
 
 </script>

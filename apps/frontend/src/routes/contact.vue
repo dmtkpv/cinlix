@@ -1,12 +1,24 @@
 <!--
+    Styles
+-->
+
+<style lang="scss">
+
+    
+
+</style>
+
+
+
+<!--
     Template
 -->
 
 <template>
-    <div class="item-how">
-        <div class="h-[225px] bg-gray" />
+    <div>Contact
     </div>
 </template>
+
 
 
 <!--
@@ -15,5 +27,6 @@
 
 <script setup>
 
+    
 
 </script>

@@ -5,7 +5,7 @@
 export async function up (knex) {
 
     await knex.schema.createTable('About', table => {
-        table.page('About');
+        table.page();
         table.defaults();
     })
 
@@ -29,14 +29,14 @@ export async function up (knex) {
     })
 
     await knex.schema.createTable('Services', table => {
-        table.page('Services');
+        table.page();
         table.defaults();
     })
 
     await knex.schema.createTable('services', table => {
         table.increments('id');
         table.string('title').notNullable();
-        table.string('slug').notNullable();
+        table.string('slug').notNullable().unique();
         table.string('description').notNullable();
         table.file('icon').notNullable();
         table.file('image').notNullable();
@@ -54,24 +54,24 @@ export async function up (knex) {
         table.defaults();
     })
 
-    await knex.schema.createTable('Blog', table => {
-        table.page('Blog');
+    await knex.schema.createTable('Articles', table => {
+        table.page();
         table.file('image').notNullable();
         table.defaults();
     })
 
-    await knex.schema.createTable('blog', table => {
+    await knex.schema.createTable('articles', table => {
         table.increments('id');
-        table.string('slug').notNullable();
+        table.string('slug').notNullable().unique();
         table.string('title').notNullable();
         table.file('image').notNullable();
         table.text('content').notNullable();
-        table.pageRef('Blog');
+        table.pageRef('Articles');
         table.defaults();
     })
 
     await knex.schema.createTable('Contact', table => {
-        table.page('Contact');
+        table.page();
         table.file('image').notNullable();
         table.string('street').notNullable();
         table.string('city').notNullable();
@@ -98,8 +98,8 @@ export async function down (knex) {
 
     await knex.schema.dropTable('Contact');
 
-    await knex.schema.dropTable('blog');
-    await knex.schema.dropTable('Blog');
+    await knex.schema.dropTable('articles');
+    await knex.schema.dropTable('Articles');
 
     await knex.schema.dropTable('services_sections');
     await knex.schema.dropTable('services');

@@ -3,7 +3,7 @@ import Fields from '../../fields.js'
 export default {
 
     options: {
-        collection: 'blog'
+        collection: 'articles'
     },
 
     fields: {

@@ -13,10 +13,10 @@
     Scripts
 -->
 
-<script lang="ts" setup>
+<script setup>
 
-    defineProps<{
-        text: string
-    }>()
+    // defineProps<{
+    //     text: string
+    // }>()
 
 </script>

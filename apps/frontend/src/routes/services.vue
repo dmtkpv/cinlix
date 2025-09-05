@@ -26,7 +26,7 @@
     Scripts
 -->
 
-<script lang="ts" setup>
+<script setup>
 
     
 
