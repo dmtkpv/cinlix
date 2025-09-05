@@ -1,10 +1,9 @@
-import Fields from '../fields.js';
+import Fields from '../../fields.js'
 
 export default {
 
     options: {
-        collection: 'about',
-        group: 'pages',
+        collection: 'About',
         singleton: true,
     },
 

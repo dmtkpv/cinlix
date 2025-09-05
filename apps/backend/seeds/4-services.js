@@ -1,10 +1,17 @@
 import { FILES } from '../constants.js'
+import knex from "knex";
 
 
 
 // -------------------
 // Data
 // -------------------
+
+const Services = {
+    id: 1,
+    title: 'Services',
+    path: '/services'
+}
 
 const defaults = {
     image: FILES.image,
@@ -15,7 +22,8 @@ const services = [
     {
         id: 1,
         sort: 0,
-        path: '/services/production',
+        parent: 1,
+        slug: 'production',
         title: 'Video Production',
         icon: FILES.service_production,
         ...defaults
@@ -23,7 +31,8 @@ const services = [
     {
         id: 2,
         sort: 0,
-        path: '/services/cooperation',
+        parent: 1,
+        slug: 'cooperation',
         title: 'Corporate Service',
         icon: FILES.service_cooperation,
         ...defaults
@@ -31,7 +40,8 @@ const services = [
     {
         id: 3,
         sort: 0,
-        path: '/services/social',
+        parent: 1,
+        slug: 'social',
         title: 'Social Media Service',
         icon: FILES.service_social,
         ...defaults
@@ -39,30 +49,31 @@ const services = [
     {
         id: 4,
         sort: 0,
-        path: '/services/live',
+        parent: 1,
+        slug: 'live',
         title: 'Future News & Live-Streaming',
         icon: FILES.service_live,
         ...defaults
     }
 ]
 
-const content = [
-    { ...defaults, service: 1 },
-    { ...defaults, service: 1 },
-    { ...defaults, service: 1 },
-    { ...defaults, service: 1 },
-    { ...defaults, service: 1 },
-    { ...defaults, service: 1 },
-    { ...defaults, service: 2 },
-    { ...defaults, service: 2 },
-    { ...defaults, service: 2 },
-    { ...defaults, service: 2 },
-    { ...defaults, service: 3 },
-    { ...defaults, service: 3 },
-    { ...defaults, service: 3 },
-    { ...defaults, service: 4 },
-    { ...defaults, service: 4 },
-    { ...defaults, service: 4 },
+const sections = [
+    { ...defaults, parent: 1 },
+    { ...defaults, parent: 1 },
+    { ...defaults, parent: 1 },
+    { ...defaults, parent: 1 },
+    { ...defaults, parent: 1 },
+    { ...defaults, parent: 1 },
+    { ...defaults, parent: 2 },
+    { ...defaults, parent: 2 },
+    { ...defaults, parent: 2 },
+    { ...defaults, parent: 2 },
+    { ...defaults, parent: 3 },
+    { ...defaults, parent: 3 },
+    { ...defaults, parent: 3 },
+    { ...defaults, parent: 4 },
+    { ...defaults, parent: 4 },
+    { ...defaults, parent: 4 },
 
 ]
 
@@ -74,10 +85,11 @@ const content = [
 
 export async function seed (knex) {
 
-    const exists = await knex('services').select('id').first();
+    const exists = await knex('Services').select('id').first();
     if (exists) return;
 
+    await knex('Services').insert(Services);
     await knex('services').insert(services);
-    await knex('services_content').insert(content);
+    await knex('services_sections').insert(sections);
 
 }

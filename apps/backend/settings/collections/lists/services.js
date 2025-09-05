@@ -1,15 +1,17 @@
-import Fields from '../fields.js';
+import Fields from '../../fields.js'
 
 export default {
 
     options: {
         collection: 'services',
-        sort_field: 'sort',
-        group: 'data',
+        sort_field: 'sort'
     },
 
     fields: {
         id: Fields.id(),
+        parent: Fields.input({
+            hidden: true
+        }),
         sort: Fields.input({
             hidden: true
         }),
@@ -17,7 +19,7 @@ export default {
             required: true,
             width: 'half'
         }),
-        path: Fields.input({
+        slug: Fields.input({
             required: true,
             width: 'half'
         }),
@@ -32,7 +34,7 @@ export default {
             required: true,
             width: 'half'
         }),
-        content: Fields.o2m({
+        sections: Fields.o2m({
             required: true,
             template: '{{ description }}',
             options: {
@@ -44,8 +46,7 @@ export default {
 
     presets: [
         'icon',
-        'title',
-        'content'
+        'title'
     ]
 
 };

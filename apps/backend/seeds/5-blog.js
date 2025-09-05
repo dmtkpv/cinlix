@@ -6,14 +6,15 @@ import { FILES } from '../constants.js'
 // Data
 // -------------------
 
-const blog = {
+const Blog = {
     id: 1,
     path: '/blog',
     title: 'Blog/News',
     image: FILES.image
 }
 
-const articles = Array.from({ length: 100 }).map((_, i) => ({
+const blog = Array.from({ length: 100 }).map((_, i) => ({
+    parent: 1,
     slug: `article-${i}`,
     title: `Article ${i}`,
     image: FILES.image,
@@ -28,10 +29,10 @@ const articles = Array.from({ length: 100 }).map((_, i) => ({
 
 export async function seed (knex) {
 
-    const exists = await knex('blog').select('id').first();
+    const exists = await knex('Blog').select('id').first();
     if (exists) return;
 
+    await knex('Blog').insert(Blog);
     await knex('blog').insert(blog);
-    await knex('articles').insert(articles);
 
 }

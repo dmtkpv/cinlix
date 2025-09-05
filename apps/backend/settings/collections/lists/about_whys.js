@@ -1,16 +1,16 @@
-import Fields from '../fields.js';
+import Fields from '../../fields.js'
 
 export default {
 
     options: {
         collection: 'about_whys',
-        group: 'data',
+        sort_field: 'sort',
         hidden: true
     },
 
     fields: {
         id: Fields.id(),
-        about: Fields.input({
+        parent: Fields.input({
             hidden: true
         }),
         sort: Fields.input({
@@ -26,5 +26,10 @@ export default {
             required: true,
         }),
     },
+
+    presets: [
+        'image',
+        'title'
+    ]
 
 };

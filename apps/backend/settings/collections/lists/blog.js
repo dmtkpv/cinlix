@@ -1,14 +1,16 @@
-import Fields from '../fields.js';
+import Fields from '../../fields.js'
 
 export default {
 
     options: {
-        collection: 'articles',
-        group: 'data',
+        collection: 'blog'
     },
 
     fields: {
         id: Fields.id(),
+        parent: Fields.input({
+            hidden: true
+        }),
         title: Fields.input({
             required: true,
             width: 'half'

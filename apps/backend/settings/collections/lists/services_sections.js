@@ -1,16 +1,15 @@
-import Fields from '../fields.js';
+import Fields from '../../fields.js'
 
 export default {
 
     options: {
-        collection: 'services_content',
-        group: 'data',
+        collection: 'services_sections',
         hidden: true,
     },
 
     fields: {
         id: Fields.id(),
-        service: Fields.input({
+        parent: Fields.input({
             hidden: true
         }),
         sort: Fields.input({
@@ -23,5 +22,10 @@ export default {
             required: true,
         }),
     },
+
+    presets: [
+        'image',
+        'description'
+    ]
 
 };

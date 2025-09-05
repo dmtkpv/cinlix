@@ -6,7 +6,7 @@ import { FILES } from '../constants.js'
 // Data
 // -------------------
 
-const contacts = {
+const Contact = {
     id: 1,
     path: '/contact',
     title: 'Contact Us',
@@ -31,9 +31,9 @@ const contacts = {
 
 export async function seed (knex) {
 
-    const exists = await knex('contacts').select('id').first();
+    const exists = await knex('Contact').select('id').first();
     if (exists) return;
 
-    await knex('contacts').insert(contacts);
+    await knex('Contact').insert(Contact);
 
 }

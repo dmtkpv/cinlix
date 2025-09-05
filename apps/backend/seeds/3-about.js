@@ -6,14 +6,14 @@ import { FILES } from '../constants.js'
 // Data
 // -------------------
 
-const about = {
+const About = {
     id: 1,
     path: '/',
     title: 'About',
 }
 
 const defaults = {
-    about: 1,
+    parent: 1,
     image: FILES.image,
 }
 
@@ -64,10 +64,10 @@ const whys = [
 
 export async function seed (knex) {
 
-    const exists = await knex('about').select('id').first();
+    const exists = await knex('About').select('id').first();
     if (exists) return;
 
-    await knex('about').insert(about);
+    await knex('About').insert(About);
     await knex('about_slides').insert(slides);
     await knex('about_whys').insert(whys);
 

@@ -1,10 +1,9 @@
-import Fields from '../fields.js';
+import Fields from '../../fields.js'
 
 export default {
 
     options: {
-        collection: 'blog',
-        group: 'pages',
+        collection: 'Services',
         singleton: true,
     },
 
@@ -18,9 +17,14 @@ export default {
             required: true,
             width: 'half'
         }),
-        image: Fields.image({
+        services: Fields.o2m({
             required: true,
-        })
+            template: '{{ icon }} {{ title }}',
+            options: {
+                enableSelect: false,
+                sort: 'sort'
+            }
+        }),
     },
 
 };
