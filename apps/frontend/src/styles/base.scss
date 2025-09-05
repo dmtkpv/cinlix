@@ -49,10 +49,14 @@ button {
     font-size: inherit;
     font-weight: inherit;
     font-family: inherit;
+    cursor: pointer;
 }
 p {
     margin: 0;
 }
 main {
     padding-top: $header;
+}
+figure {
+    margin: 0;
 }

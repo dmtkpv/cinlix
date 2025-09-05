@@ -11,7 +11,8 @@ import database from './database.js'
 // ------------------
 
 const {
-    FRONTEND_PORT
+    FRONTEND_PORT,
+    BACKEND_URL
 } = process.env;
 
 
@@ -32,6 +33,10 @@ export default {
         svg({ svgo: false }),
         virtual({ db: database })
     ],
+
+    define: {
+        BACKEND_URL: JSON.stringify(BACKEND_URL)
+    },
 
     resolve: {
         alias: {
