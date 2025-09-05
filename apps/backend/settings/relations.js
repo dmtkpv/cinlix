@@ -11,11 +11,11 @@ const m2m = []
 // -------------------
 
 const o2m = [
-    ['About', 'slides', 'about_slides', 'parent', null, 'sort', 'delete'],
-    ['About', 'why_us', 'about_whys', 'parent', null, 'sort', 'delete'],
-    ['Blog', 'blog', 'blog', 'parent', null, null, 'delete'],
-    ['Services', 'services', 'services', 'parent', null, 'sort', 'delete'],
-    ['services', 'sections', 'services_sections', 'parent', null, 'sort', 'delete'],
+    ['About', 'slides', 'about_slides', 'page', null, 'sort', 'delete'],
+    ['About', 'why_us', 'about_whys', 'page', null, 'sort', 'delete'],
+    ['Blog', 'blog', 'blog', 'page', null, null, 'delete'],
+    ['Services', 'services', 'services', 'page', null, 'sort', 'delete'],
+    ['services', 'sections', 'services_sections', 'service', null, 'sort', 'delete'],
     // ['directus_files', null, 'about_slides', 'image', null, null, 'delete'],
 ];
 

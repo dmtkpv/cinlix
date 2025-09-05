@@ -1,92 +1,78 @@
-import useUtils from './utils/001.js'
-
-
-
 // ------------------
 // Up
 // ------------------
 
 export async function up (knex) {
 
-    const $ = useUtils(knex);
-
     await knex.schema.createTable('About', table => {
-        table.increments('id');
-        table.string('title').notNullable();
-        table.string('path').notNullable();
-        $.setDefaults(table);
+        table.page('About');
+        table.defaults();
     })
 
     await knex.schema.createTable('about_slides', table => {
         table.increments('id');
-        table.integer('parent').notNullable().references('About.id').onDelete('CASCADE')
-        table.uuid('image').notNullable().references('directus_files.id')
+        table.file('image').notNullable();
         table.string('title').notNullable();
         table.integer('sort');
-        $.setDefaults(table);
+        table.pageRef('About');
+        table.defaults();
     })
 
     await knex.schema.createTable('about_whys', table => {
         table.increments('id');
-        table.integer('parent').notNullable().references('About.id').onDelete('CASCADE')
-        table.uuid('image').notNullable().references('directus_files.id')
+        table.file('image').notNullable();
         table.string('title').notNullable();
         table.string('description').notNullable();
         table.integer('sort');
-        $.setDefaults(table);
+        table.pageRef('About');
+        table.defaults();
     })
 
     await knex.schema.createTable('Services', table => {
-        table.increments('id');
-        table.string('title').notNullable();
-        table.string('path').notNullable();
-        $.setDefaults(table);
+        table.page('Services');
+        table.defaults();
     })
 
     await knex.schema.createTable('services', table => {
         table.increments('id');
-        table.integer('parent').notNullable().references('Services.id').onDelete('CASCADE')
         table.string('title').notNullable();
         table.string('slug').notNullable();
         table.string('description').notNullable();
-        table.uuid('icon').notNullable().references('directus_files.id')
-        table.uuid('image').notNullable().references('directus_files.id')
+        table.file('icon').notNullable();
+        table.file('image').notNullable();
         table.integer('sort');
-        $.setDefaults(table);
+        table.pageRef('Services');
+        table.defaults();
     })
 
     await knex.schema.createTable('services_sections', table => {
         table.increments('id');
-        table.integer('parent').notNullable().references('services.id').onDelete('CASCADE')
-        table.uuid('image').notNullable().references('directus_files.id')
+        table.integer('service').notNullable().references('services.id').onDelete('CASCADE')
+        table.file('image').notNullable();
         table.string('description').notNullable();
         table.integer('sort');
-        $.setDefaults(table);
+        table.defaults();
     })
 
     await knex.schema.createTable('Blog', table => {
-        table.increments('id');
-        table.string('title').notNullable();
-        table.string('path').notNullable();
-        table.uuid('image').notNullable().references('directus_files.id')
-        $.setDefaults(table);
+        table.page('Blog');
+        table.file('image').notNullable();
+        table.defaults();
     })
 
     await knex.schema.createTable('blog', table => {
         table.increments('id');
-        table.integer('parent').notNullable().references('Blog.id').onDelete('CASCADE')
         table.string('slug').notNullable();
         table.string('title').notNullable();
-        table.uuid('image').notNullable().references('directus_files.id')
+        table.file('image').notNullable();
         table.text('content').notNullable();
-        $.setDefaults(table);
+        table.pageRef('Blog');
+        table.defaults();
     })
 
     await knex.schema.createTable('Contact', table => {
-        table.increments('id');
-        table.string('title').notNullable();
-        table.string('path').notNullable();
-        table.uuid('image').notNullable().references('directus_files.id')
+        table.page('Contact');
+        table.file('image').notNullable();
         table.string('street').notNullable();
         table.string('city').notNullable();
         table.string('state').notNullable();
@@ -97,7 +83,7 @@ export async function up (knex) {
         table.string('facebook').notNullable();
         table.string('linkedin').notNullable();
         table.string('instagram').notNullable();
-        $.setDefaults(table);
+        table.defaults();
     })
 
 }

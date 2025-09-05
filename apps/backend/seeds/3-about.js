@@ -7,31 +7,25 @@ import { FILES } from '../constants.js'
 // -------------------
 
 const About = {
-    id: 1,
     path: '/',
     title: 'About',
-}
-
-const defaults = {
-    parent: 1,
-    image: FILES.image,
 }
 
 const slides = [
     {
         sort: 0,
         title: 'See your story and make your world memorable',
-        ...defaults
+        image: FILES.image,
     },
     {
         sort: 1,
         title: 'Where Your Vision Comes alive your lens in breaking truth',
-        ...defaults
+        image: FILES.image,
     },
     {
         sort: 2,
         title: 'Capture Your Vision where every frame tells the truth',
-        ...defaults
+        image: FILES.image,
     }
 ]
 
@@ -40,19 +34,19 @@ const whys = [
         sort: 0,
         title: 'Title',
         description: 'Lorem ipsum dolor sit amet consectetur. Sollicitudin arcu purus lobortis leo amet leo faucibus. Proin.',
-        ...defaults
+        image: FILES.image,
     },
     {
         sort: 1,
         title: 'Title',
         description: 'Lorem ipsum dolor sit amet consectetur. Sollicitudin arcu purus lobortis leo amet leo faucibus. Proin.',
-        ...defaults
+        image: FILES.image,
     },
     {
         sort: 2,
         title: 'Title',
         description: 'Lorem ipsum dolor sit amet consectetur. Sollicitudin arcu purus lobortis leo amet leo faucibus. Proin.',
-        ...defaults
+        image: FILES.image,
     },
 ]
 
@@ -64,7 +58,7 @@ const whys = [
 
 export async function seed (knex) {
 
-    const exists = await knex('About').select('id').first();
+    const exists = await knex('About').select('name').first();
     if (exists) return;
 
     await knex('About').insert(About);

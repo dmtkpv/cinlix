@@ -8,7 +8,7 @@ export default {
 
     fields: {
         id: Fields.id(),
-        parent: Fields.input({
+        page: Fields.input({
             hidden: true
         }),
         title: Fields.input({

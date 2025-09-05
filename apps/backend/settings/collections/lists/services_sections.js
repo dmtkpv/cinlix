@@ -9,7 +9,7 @@ export default {
 
     fields: {
         id: Fields.id(),
-        parent: Fields.input({
+        service: Fields.input({
             hidden: true
         }),
         sort: Fields.input({

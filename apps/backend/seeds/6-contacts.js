@@ -7,7 +7,6 @@ import { FILES } from '../constants.js'
 // -------------------
 
 const Contact = {
-    id: 1,
     path: '/contact',
     title: 'Contact Us',
     image: FILES.image,
@@ -31,7 +30,7 @@ const Contact = {
 
 export async function seed (knex) {
 
-    const exists = await knex('Contact').select('id').first();
+    const exists = await knex('Contact').select('name').first();
     if (exists) return;
 
     await knex('Contact').insert(Contact);

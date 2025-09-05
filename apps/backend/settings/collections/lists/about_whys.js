@@ -10,7 +10,7 @@ export default {
 
     fields: {
         id: Fields.id(),
-        parent: Fields.input({
+        page: Fields.input({
             hidden: true
         }),
         sort: Fields.input({

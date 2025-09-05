@@ -8,7 +8,9 @@ export default {
     },
 
     fields: {
-        id: Fields.id(),
+        name: Fields.input({
+            hidden: true,
+        }),
         title: Fields.input({
             required: true,
             width: 'half'
