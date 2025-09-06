@@ -23,10 +23,27 @@ export default {
             ]);
     },
 
-    async 'About' () {
+    async 'about' () {
         return {
             slides: await knex('about_slides').select('id', 'image', 'title').orderBy('sort'),
             why: await knex('about_whys').select('id', 'image', 'title', 'description').orderBy('sort'),
+        }
+    },
+
+    'Services': {
+        keys: await knex('services').pluck('slug'),
+        item (slug) {
+            return knex('services')
+                .innerJoin('services_sections', 'services_sections.service', 'services.id')
+                .where({ slug })
+                .first()
+                .groupBy('services.id')
+                .select([
+                    'services.title',
+                    'services.description',
+                    'services.image',
+                    'services.title',
+                ])
         }
     },
 

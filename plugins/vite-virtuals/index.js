@@ -30,7 +30,7 @@ export default function (configs) {
             keys.forEach(key => {
                 const id = `${name}-${key}`;
                 config[id] = () => item(key);
-                exports.push(`${key}: () => import('${prefix}:${id}')`);
+                exports.push(`${key}: () => import('${prefix}:${id}').then(m => m.default)`);
             })
 
             config[name] = () => `{ ${exports.join(',')} }`
@@ -57,6 +57,7 @@ export default function (configs) {
         async load (id) {
             const [_, prefix, name] = id.split(/[\0:]/);
             if (!Object.keys(configs).includes(prefix)) return;
+            if (!configs[prefix][name]) throw new Error(`Unknown virtual ${id}`);
             let value = await configs[prefix][name]();
             if (typeof value === 'object') value = JSON.stringify(value);
             return `export default ${value}`

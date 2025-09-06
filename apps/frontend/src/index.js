@@ -1,24 +1,24 @@
 import '~/styles/base.scss'
 import '~/styles/modules.scss'
-import { ViteSSG } from 'vite-ssg'
+import createApp from '@dmtkpv/ssg/createApp'
 import App from '~/index.vue'
-import routes from '~/config/routes'
+import components from '~/config/components.js'
+import createRouter from '~/services/router.js'
 
 
 
-const modules = import.meta.glob([
-    './icons/*',
-    './items/*',
-    './layout/*',
-    './ui/*',
-], { eager: true })
+// ------------------
+// Export
+// ------------------
 
+export default createApp(App, ({ app }) => {
 
-export const createApp = ViteSSG(App, { routes }, ({ app }) => {
+    const router = createRouter();
 
-    Object.keys(modules).forEach(key => {
-        const name = key.split('/').pop().split('.').shift()
-        app.component(name, modules[key].default);
-    })
+    app.use(router);
+
+    for (const name in components) {
+        app.component(name, components[name]);
+    }
 
 })

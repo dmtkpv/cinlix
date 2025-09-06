@@ -4,7 +4,7 @@
   "scripts": {
     "serve": "vite",
     "preview": "vite preview",
-    "build": "vite-ssg build"
+    "build": "NODE_ENV='production' node build.js"
   },
   "dependencies": {
     "@unhead/vue": "2.0.14",
@@ -12,6 +12,7 @@
     "vue-router": "4.5.1"
   },
   "devDependencies": {
+    "@dmtkpv/ssg": "1.1.2",
     "@this/backend": "workspace:*",
     "@vitejs/plugin-vue": "6.0.1",
     "sass": "1.91.0",

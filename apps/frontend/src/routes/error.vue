@@ -15,8 +15,7 @@
 -->
 
 <template>
-    <div>
-        Services
+    <div>404
     </div>
 </template>
 

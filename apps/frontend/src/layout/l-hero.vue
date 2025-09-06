@@ -221,6 +221,4 @@
         disabled.value = false
     }
 
-    console.log(slides)
-
 </script>

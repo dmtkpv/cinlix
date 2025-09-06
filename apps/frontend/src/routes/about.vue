@@ -58,9 +58,8 @@
 
 <script setup>
 
-    import DATA from 'db:About'
+    import DATA from 'db:about'
 
-    console.log(DATA)
 
     // import { dbBlog, dbHow, dbSlides, dbWhat, dbWhy } from '~/config/database'
     // import { UiSlider, LSection, ItemWhy, ItemHow, ItemWhat, ItemBlog, UiButton, LHero } from '~/config/components'
