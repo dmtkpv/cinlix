@@ -24,7 +24,7 @@
 -->
 
 <template>
-    <l-section class="s-articles">
+    <l-section container-class="s-articles">
         <router-link v-for="item in value" :to="{ name: 'Article', params: { slug: item.slug }}">
 
             <ui-image :value="item.image" />
