@@ -6,13 +6,17 @@
 
     .ui-image {
 
-        opacity: 0;
-        transition: opacity .3s;
+        white-space: nowrap;
+        background: $gray;
 
-        &._loaded {
-            opacity: 1;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity .3s;
+            &._loaded { opacity: 1 }
         }
-
     }
 
 </style>
@@ -24,12 +28,13 @@
 -->
 
 <template>
-    <img class="ui-image"
-         ref="$el"
-         :src="src"
-         :class="{ _loaded }"
-         @load="_loaded = true"
-    >
+    <div class="ui-image" :style="{ background: bg }">
+        <img ref="$img"
+             :src="src"
+             :class="{ _loaded }"
+             @load="_loaded = true"
+        >
+    </div>
 </template>
 
 
@@ -42,19 +47,20 @@
 
     import { computed, ref, onMounted } from 'vue'
 
-    const props = defineProps([
-        'value'
-    ])
+    const props = defineProps({
+        value: String,
+        bg: String
+    })
 
     const _loaded = ref(false);
-    const $el = ref(null);
+    const $img = ref(null);
 
     const src = computed(() => {
         return `${BACKEND_URL}/assets/${props.value}`
     })
 
     onMounted(() => {
-        if ($el.value.complete) _loaded.value = true;
+        if ($img.value.complete) _loaded.value = true;
     })
 
 </script>

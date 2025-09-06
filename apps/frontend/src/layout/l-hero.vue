@@ -31,16 +31,10 @@
             inset: 0;
             background: $black-light;
 
-            figure {
+            .ui-image {
                 width: 100%;
                 height: 100%;
                 opacity: .35;
-            }
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
             }
 
             &:not(._active) {
