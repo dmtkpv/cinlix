@@ -14,3 +14,4 @@ pages.create(() => {
 - backend: setup roles (public, admin)
 - frontend: ui-image size
 - frontend: 404 page
+- frontend: header mobile menu blackout + disable scroll + overflow scroll in menu

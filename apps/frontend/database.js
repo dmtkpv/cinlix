@@ -11,7 +11,35 @@ export default {
         }
     },
 
+    async 'contact' () {
+        return knex('Contact').first().select([
+            'title',
+            'image',
+            'street',
+            'city',
+            'state',
+            'zip',
+            'phone',
+            'email',
+            'twitter',
+            'facebook',
+            'linkedin',
+            'instagram',
+        ])
+    },
+
     async 'services' () {
+        return knex('services')
+            .innerJoin('Services AS page', 'page.name', 'services.page')
+            .orderBy('sort')
+            .select([
+                'services.title',
+                knex.raw(`page.path || '/' || services.slug AS path`)
+            ]);
+    },
+
+
+    async 'services_old' () {
         return knex('services')
             .innerJoin('Services AS page', 'page.name', 'services.page')
             .orderBy('sort')

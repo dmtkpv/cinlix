@@ -8,10 +8,12 @@ import Error from '~/routes/error.vue'
 
 export default [
     {
+        name: 'about',
         path: PAGES.About.path,
         component: About
     },
     {
+        name: 'contact',
         path: PAGES.Contact.path,
         component: Contact
     },
@@ -19,10 +21,12 @@ export default [
         path: PAGES.Services.path,
         children: [
             {
+                name: 'services',
                 path: '',
                 component: Error
             },
             {
+                name: 'service',
                 path: ':slug',
                 component: Service
             }
@@ -32,10 +36,12 @@ export default [
         path: PAGES.Articles.path,
         children: [
             {
+                name: 'articles',
                 path: '',
                 component: Articles
             },
             {
+                name: 'article',
                 path: ':slug',
                 component: Article
             }

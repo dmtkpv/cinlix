@@ -3,7 +3,12 @@ import routes from '~/config/routes.js'
 
 export default function () {
 
-    const router = createRouter({ routes });
+    const router = createRouter({
+        routes,
+        scrollBehavior () {
+            return { top: 0 }
+        },
+    });
 
 
 

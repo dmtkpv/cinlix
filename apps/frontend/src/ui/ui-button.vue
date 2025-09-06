@@ -1,11 +1,37 @@
 <!--
+    Styles
+-->
+
+<style lang="scss">
+
+    .ui-button {
+
+        background: $amber;
+        color: $white;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px 24px;
+        border-radius: 12px;
+        width: max-content;
+
+        @include hover {
+            background: $amber-dark;
+        }
+
+    }
+
+</style>
+
+
+
+<!--
     Template
 -->
 
 <template>
-    <div class="font-semibold text-lg bg-amber hover:bg-amber-dark rounded-xl py-2 px-10 w-max">
+    <ui-dynamic class="ui-button">
         {{ text }}
-    </div>
+    </ui-dynamic>
 </template>
 
 
@@ -15,8 +41,8 @@
 
 <script setup>
 
-    // defineProps<{
-    //     text: string
-    // }>()
+    defineProps({
+        text: String
+    })
 
 </script>

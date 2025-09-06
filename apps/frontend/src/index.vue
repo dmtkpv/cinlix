@@ -24,7 +24,7 @@
     <l-header />
 <!--    <l-blackout />-->
     <router-view />
-<!--    <l-footer />-->
+    <l-footer />
 </template>
 
 

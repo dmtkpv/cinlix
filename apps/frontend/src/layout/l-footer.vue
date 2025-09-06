@@ -1,38 +1,190 @@
 <!--
+    Styles
+-->
+
+<style lang="scss">
+
+    .l-footer {
+
+
+
+        // -----------------
+        // Common
+        // -----------------
+
+        background: $black;
+        color: $white;
+        padding-block: 64px;
+        font-weight: 400;
+
+        a:not(.ui-button) {
+            @include hover {
+                color: $amber;
+            }
+        }
+
+
+
+        // -----------------
+        // Container
+        // -----------------
+
+        .container {
+
+            @include lg-md {
+                display: grid;
+                grid-template-columns: 1fr 1.5fr 3fr max-content;
+            }
+
+            @include lg {
+                gap: 96px;
+                font-size: 16px;
+            }
+
+            @include md {
+                gap: 48px;
+                font-size: 14px;
+            }
+
+            @include sm {
+                display: flex;
+                flex-direction: column;
+                gap: 48px;
+            }
+
+
+        }
+
+
+
+
+        // -----------------
+        // Nav
+        // -----------------
+
+        &_nav {
+
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            &:first-child {
+                white-space: nowrap;
+            }
+
+        }
+
+
+
+        // -----------------
+        // CTA
+        // -----------------
+
+        &_cta {
+
+            p {
+                font-size: 1.75em;
+                font-weight: 700;
+                margin-bottom: 24px;
+            }
+
+        }
+
+
+
+        // -----------------
+        // Address
+        // -----------------
+
+        &_address {
+
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+
+            p {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            svg {
+                height: 16px;
+            }
+
+        }
+
+
+
+        // -----------------
+        // Social
+        // -----------------
+
+        &_social {
+
+            display: flex;
+            gap: 12px;
+
+            svg {
+                height: 24px;
+            }
+
+        }
+
+
+
+    }
+
+</style>
+
+
+
+<!--
     Template
 -->
 
 <template>
-    <footer class="l-footer bg-black text-white">
-        <div class="wrapper flex gap-26 py-20" >
-            <nav class="columns-2" style="width: 400px">
-                <router-link class="block" v-for="item in dbPages" :to="item.path">{{ item.title }}</router-link>
+    <footer class="l-footer">
+        <div class="container">
+
+
+            <!-- nav -->
+
+            <nav v-for="nav in navs" class="l-footer_nav">
+                <router-link v-for="item in nav" :to="item.path">{{ item.title }}</router-link>
             </nav>
-            <div>
-                <p class="text-3xl font-bold">Let’s make awesome things together</p>
-                <ui-button text="Contact us" />
+
+
+            <!-- cta -->
+
+            <div class="l-footer_cta">
+                <p>Let’s make awesome things together</p>
+                <ui-button text="Contact us" :to="{ name: 'contact' }" />
             </div>
-            <div>
-                Cinlix
-                {{ dbContacts.street }}
-                {{ dbContacts.city }}, {{ dbContacts.state }} {{ dbContacts.zip }}
-
-                <a v-for="item in contacts" class="flex">
-                    <component class="w-4 mr-2" :is="item.icon" />
-                    {{ item.text }}
-                </a>
 
 
-                <div class="flex">
-                    <a v-for="item in social" :href="item.url" target="_blank" class="p-3">
-                        <component class="w-6" :is="item.icon" />
+            <!-- contacts -->
+
+            <div class="l-footer_contacts">
+
+                <div class="l-footer_address">
+                    <p v-for="address in addresses">
+                        <component v-if="address.icon" :is="address.icon" />
+                        {{ address.text }}
+                    </p>
+                </div>
+
+                <div class="l-footer_social">
+                    <a v-for="item in social" :href="item.url" target="_blank">
+                        <component :is="item.icon" />
                     </a>
                 </div>
 
 
-
             </div>
         </div>
+
     </footer>
 </template>
 
@@ -44,21 +196,29 @@
 
 <script setup>
 
-    // import { dbPages, dbContacts } from '~/config/database'
-    // import { IcFacebook, IcLinkedin, IcTwitter, IcInstagram, IcPhone, IcMail, UiButton } from '~/config/components'
-    //
-    // const contacts = [
-    //     { url: '', icon: IcPhone, text: dbContacts.phone },
-    //     { url: '', icon: IcMail, text: dbContacts.email },
-    // ]
-    //
-    // const social = [
-    //     { url: dbContacts.twitter, icon: IcTwitter },
-    //     { url: dbContacts.facebook, icon: IcFacebook },
-    //     { url: dbContacts.linkedin, icon: IcLinkedin },
-    //     { url: dbContacts.instagram, icon: IcInstagram },
-    // ]
+    import PAGES from 'db:pages'
+    import SERVICES from 'db:services'
+    import CONTACT from 'db:contact'
 
+    const navs = [
+        [PAGES.About, PAGES.Articles, PAGES.Contact],
+        [...SERVICES]
+    ]
+
+    const addresses = [
+        { text: 'Cinlix' },
+        { text: CONTACT.street },
+        { text: `${CONTACT.city}, ${CONTACT.state} ${CONTACT.zip}` },
+        { text: CONTACT.phone, icon: 'ic-phone', },
+        { text: CONTACT.email, icon: 'ic-mail' },
+    ]
+
+    const social = [
+        { url: CONTACT.twitter, icon: 'ic-twitter' },
+        { url: CONTACT.facebook, icon: 'ic-facebook' },
+        { url: CONTACT.linkedin, icon: 'ic-linkedin' },
+        { url: CONTACT.instagram, icon: 'ic-instagram' },
+    ]
 
 
 
