@@ -8,17 +8,14 @@ export default {
     // Common
     // ------------------
 
-    'pages' () {
-        return Promise.all([
-            knex('About').select('path', 'title').first(),
-            knex('Articles').select('path', 'title').first(),
-            knex('Contact').select('path', 'title').first(),
-            knex('Services').select('path', 'title').first(),
-            knex('services').select('slug', 'title'),
-        ]).then(([About, Articles, Contact, Services, services]) => ({
-            About, Articles, Contact, Services,
-            services: services.map(({ slug, title }) => ({ title, path: `${Services.path}/${slug}` }))
-        }))
+    async 'pages' () {
+        const About = await knex('About').select('path', 'title').first()
+        const Articles = await knex('Articles').select('path', 'title').first()
+        const Contact = await knex('Contact').select('path', 'title').first()
+        const Services = await knex('Services').select('path', 'title').first()
+        const services = await knex('services').select('slug', 'title')
+        services.forEach(service => service.path = `${Services.path}/${service.slug}`)
+        return { About, Articles, Contact, Services, services }
     },
 
 
@@ -27,38 +24,22 @@ export default {
     // Pages
     // ------------------
 
-
     async 'About' () {
-        return {
-            slides: await knex('about_slides').select('id', 'image', 'title').orderBy('sort'),
-            why: await knex('about_whys').select('id', 'image', 'title', 'description').orderBy('sort'),
-        }
+        const slides = await knex('about_slides').select('id', 'image', 'title').orderBy('sort')
+        const why = await knex('about_whys').select('id', 'image', 'title', 'description').orderBy('sort')
+        const services = await knex('services').select('title', 'slug', 'description', 'icon').orderBy('sort')
+        const articles = await knex('articles').select('title', 'image', 'slug', 'created_at').orderBy('created_at', 'desc').limit(4)
+        return { slides, why, services, articles }
     },
 
     async 'Articles' () {
-        return Promise.all([
-            knex('Articles').select('title', 'image').first(),
-            knex('articles').select('title', 'image', 'slug', 'created_at').orderBy('created_at', 'desc')
-        ]).then(([Articles, articles]) => {
-            return Object.assign(Articles, { articles })
-        })
+        const Articles = await knex('Articles').select('title', 'image').first()
+        const articles = await knex('articles').select('title', 'image', 'slug', 'created_at').orderBy('created_at', 'desc')
+        return Object.assign(Articles, { articles })
     },
 
     async 'Contact' () {
-        return knex('Contact').first().select([
-            'title',
-            'image',
-            'street',
-            'city',
-            'state',
-            'zip',
-            'phone',
-            'email',
-            'twitter',
-            'facebook',
-            'linkedin',
-            'instagram',
-        ])
+        return knex('Contact').first().select('title', 'image', 'street', 'city', 'state', 'zip', 'phone', 'email', 'twitter', 'facebook', 'linkedin', 'instagram')
     },
 
 
