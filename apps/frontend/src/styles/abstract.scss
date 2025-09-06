@@ -60,5 +60,6 @@ $sm: 768px;
 // -----------------
 
 @mixin hover {
+    &:active { @content }
     @media (hover: hover) { &:hover { @content }}
 }

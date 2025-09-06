@@ -11,7 +11,7 @@ import createRouter from '~/services/router.js'
 // Export
 // ------------------
 
-export default createApp(App, ({ app }) => {
+export default createApp(App, ({ app, isSSR }) => {
 
     const router = createRouter();
 
@@ -19,6 +19,10 @@ export default createApp(App, ({ app }) => {
 
     for (const name in components) {
         app.component(name, components[name]);
+    }
+
+    if (!isSSR) {
+        import('swiped-events');
     }
 
 })

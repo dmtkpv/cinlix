@@ -61,10 +61,7 @@
             position: absolute;
             left: 50%;
             top: 50%;
-
             color: $white;
-
-            padding: 0 80px;
             width: 100%;
             max-width: 800px;
             text-align: center;
@@ -73,6 +70,7 @@
             p, h1 {
                 font-size: 48px;
                 font-weight: 900;
+                @include sm { font-size: 32px;  }
             }
 
             span {
@@ -88,6 +86,14 @@
             &._active {
                 opacity: 1;
                 transition: opacity .5s .5s;
+            }
+
+            @include lg-md {
+                padding: 0 80px;
+            }
+
+            @include sm {
+                padding: 0 24px;
             }
 
         }
@@ -120,6 +126,10 @@
 
             &._next {
                 right: 24px;
+            }
+
+            @include sm {
+                display: none;
             }
 
         }
@@ -163,7 +173,7 @@
 -->
 
 <template>
-    <div class="l-hero">
+    <div class="l-hero" @swiped-left="move(1)" @swiped-right="move(-1)">
 
         <div class="l-hero_image" v-for="(slide, i) in slides" :class="{ _active: i === active }" @transitionend="enable">
             <ui-image :value="slide.image" bg="none" />
@@ -197,7 +207,7 @@
 
 <script setup>
 
-    import { computed, ref } from 'vue'
+    import { computed, ref, onMounted, onUnmounted } from 'vue'
     import UiImage from "../ui/ui-image.vue";
 
     const props = defineProps({
@@ -218,6 +228,7 @@
 
     function move (delta) {
         if (disabled.value) return;
+        if (!controls.value) return;
         let i = active.value + delta;
         if (i < 0) i = props.value.length - 1;
         if (i > props.value.length - 1) i = 0;
@@ -228,5 +239,7 @@
     function enable () {
         disabled.value = false
     }
+
+    
 
 </script>

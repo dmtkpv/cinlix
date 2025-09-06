@@ -42,6 +42,7 @@ a {
     display: block;
     text-decoration: none;
     color: inherit;
+    -webkit-tap-highlight-color: transparent;
 }
 button {
     padding: 0;
@@ -51,6 +52,7 @@ button {
     font-weight: inherit;
     font-family: inherit;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 p {
     margin: 0;
