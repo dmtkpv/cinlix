@@ -4,7 +4,7 @@
 
 <style lang="scss">
 
-    .l-hero {
+    .s-hero {
 
 
 
@@ -173,30 +173,30 @@
 -->
 
 <template>
-    <div class="l-hero" @swiped-left="move(1)" @swiped-right="move(-1)">
+    <section class="s-hero" @swiped-left="move(1)" @swiped-right="move(-1)">
 
-        <div class="l-hero_image" v-for="(slide, i) in slides" :class="{ _active: i === active }" @transitionend="enable">
+        <div class="s-hero_image" v-for="(slide, i) in slides" :class="{ _active: i === active }" @transitionend="enable">
             <ui-image :value="slide.image" bg="none" />
         </div>
 
-        <div class="l-hero_text" v-for="(slide, i) in slides" :class="{ _active: i === active }">
+        <div class="s-hero_text" v-for="(slide, i) in slides" :class="{ _active: i === active }">
             <component :is="heading ? 'h1' : 'p'">{{ slide.title }}</component>
             <span v-if="slide.note">{{ slide.note }}</span>
         </div>
 
-        <button class="l-hero_btn _prev" v-if="controls" @click="move(-1)">
+        <button class="s-hero_btn _prev" v-if="controls" @click="move(-1)">
             <ic-left />
         </button>
 
-        <button class="l-hero_btn _next" v-if="controls" @click="move(1)">
+        <button class="s-hero_btn _next" v-if="controls" @click="move(1)">
             <ic-right />
         </button>
 
-        <div class="l-hero_nav" v-if="controls">
+        <div class="s-hero_nav" v-if="controls">
             <span v-for="(slide, i) in slides" :class="{ _active: i === active }" />
         </div>
 
-    </div>
+    </section>
 </template>
 
 

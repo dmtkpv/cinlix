@@ -19,9 +19,11 @@
 
         <h1 class="sr-only">{{ PAGES.About.title }}</h1>
 
-        <l-hero :value="DATA.slides" />
-
-        <s-vertical title="Why Us" :value="DATA.why" />
+        <s-hero :value="DATA.slides" />
+        <s-cols title="Why Us" :value="DATA.why" />
+        <s-cta />
+        <s-services title="What we can do" :value="DATA.services" />
+<!--        <s-articles title="What we can do" :value="DATA.why" />-->
 
 
     </main>

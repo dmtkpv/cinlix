@@ -33,14 +33,12 @@
 
 <template>
     <l-section class="s-horizontal">
-
         <article v-for="item in value" class="s-horizontal_item">
 
             <ui-image :value="item.image" />
             <p>{{ item.description }}</p>
 
         </article>
-
     </l-section>
 </template>
 

@@ -17,7 +17,7 @@
 <template>
     <main>
 
-        <l-hero
+        <s-hero
             :value="{ title: DATA.title, image: DATA.image }"
             heading
         />

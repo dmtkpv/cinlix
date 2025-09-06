@@ -13,6 +13,7 @@
         padding: 12px 24px;
         border-radius: 12px;
         width: max-content;
+        white-space: nowrap;
 
         @include hover {
             background: $amber-dark;

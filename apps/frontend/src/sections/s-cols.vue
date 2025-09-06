@@ -4,9 +4,31 @@
 
 <style lang="scss">
 
-    .s-vertical {
+    .s-cols {
+
+
+
+        // -----------------
+        // Common
+        // -----------------
 
         display: grid;
+
+        @include lg-md {
+            grid-template-columns: repeat(3, minmax(0, 320px));
+            gap: 32px;
+            justify-content: space-between;
+        }
+
+        @include sm {
+            gap: 80px;
+        }
+
+
+
+        // -----------------
+        // Elements
+        // -----------------
 
         .ui-image {
             aspect-ratio: 3 / 2;
@@ -24,16 +46,7 @@
             color: $gray-dark;
         }
 
-        @include lg-md {
-            grid-template-columns: repeat(3, minmax(0, 320px));
-            gap: 32px;
-            justify-content: space-between;
-        }
 
-        @include sm {
-            grid-template-columns: 1fr;
-            gap: 80px;
-        }
 
     }
 
@@ -46,8 +59,7 @@
 -->
 
 <template>
-    <l-section class="s-vertical">
-
+    <l-section container-class="s-cols">
         <article v-for="item in value">
 
             <ui-image :value="item.image" />
@@ -55,7 +67,6 @@
             <p>{{ item.description }}</p>
 
         </article>
-
     </l-section>
 </template>
 

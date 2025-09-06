@@ -33,7 +33,7 @@
 <template>
     <section class="l-section">
         <h2 v-if="title" class="l-section_heading container">{{ title }}</h2>
-        <div class="container" :class="props.class">
+        <div class="container" :class="containerClass">
             <slot />
         </div>
     </section>
@@ -49,8 +49,7 @@
 
     const props = defineProps({
         title: String,
-        class: String,
-        container: Boolean,
+        containerClass: String
     })
 
 </script>
