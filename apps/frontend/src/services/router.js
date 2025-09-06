@@ -16,7 +16,7 @@ export default function () {
     // Before each
     // -------------------
 
-    router.beforeEach(async (to) => {
+    router.beforeResolve(async (to) => {
 
         const components = to.matched.filter(route => route.components).map(route => route.components.default).flat();
         const preloads = components.map(component => component.preload).filter(value => !!value);

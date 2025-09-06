@@ -1,34 +1,29 @@
 import PAGES from 'db:pages';
-import About from '~/routes/about.vue'
-import Contact from '~/routes/contact.vue'
-import Service from '~/routes/service.vue'
-import Articles from '~/routes/articles.vue'
-import Article from '~/routes/article.vue'
 import Error from '~/routes/error.vue'
 
 export default [
     {
-        name: 'about',
+        name: 'About',
         path: PAGES.About.path,
-        component: About
+        component: () => import('~/routes/about.vue')
     },
     {
-        name: 'contact',
+        name: 'Contact',
         path: PAGES.Contact.path,
-        component: Contact
+        component: () => import('~/routes/contact.vue')
     },
     {
         path: PAGES.Services.path,
         children: [
             {
-                name: 'services',
+                name: 'Services',
                 path: '',
                 component: Error
             },
             {
-                name: 'service',
+                name: 'Service',
                 path: ':slug',
-                component: Service
+                component: () => import('~/routes/service.vue')
             }
         ],
     },
@@ -36,14 +31,14 @@ export default [
         path: PAGES.Articles.path,
         children: [
             {
-                name: 'articles',
+                name: 'Articles',
                 path: '',
-                component: Articles
+                component: () => import('~/routes/articles.vue')
             },
             {
-                name: 'article',
+                name: 'Article',
                 path: ':slug',
-                component: Article
+                component: () => import('~/routes/article.vue')
             }
         ],
     },

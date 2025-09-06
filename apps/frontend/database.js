@@ -2,16 +2,47 @@ import { knex } from '@this/backend/database'
 
 export default {
 
-    async 'pages' () {
+
+
+    // ------------------
+    // Common
+    // ------------------
+
+    'pages' () {
+        return Promise.all([
+            knex('About').select('path', 'title').first(),
+            knex('Articles').select('path', 'title').first(),
+            knex('Contact').select('path', 'title').first(),
+            knex('Services').select('path', 'title').first(),
+            knex('services').select('slug', 'title'),
+        ]).then(([About, Articles, Contact, Services, services]) => ({
+            About, Articles, Contact, Services,
+            services: services.map(({ slug, title }) => ({ title, path: `${Services.path}/${slug}` }))
+        }))
+    },
+
+
+
+    // ------------------
+    // Pages
+    // ------------------
+
+
+    async 'About' () {
         return {
-            About: await knex('About').select('path', 'title').first(),
-            Articles: await knex('Articles').select('path', 'title').first(),
-            Contact: await knex('Contact').select('path', 'title').first(),
-            Services: await knex('Services').select('path', 'title').first(),
+            slides: await knex('about_slides').select('id', 'image', 'title').orderBy('sort'),
+            why: await knex('about_whys').select('id', 'image', 'title', 'description').orderBy('sort'),
         }
     },
 
-    async 'contact' () {
+    async 'Blog' () {
+        return {
+            slides: await knex('about_slides').select('id', 'image', 'title').orderBy('sort'),
+            why: await knex('about_whys').select('id', 'image', 'title', 'description').orderBy('sort'),
+        }
+    },
+
+    async 'Contact' () {
         return knex('Contact').first().select([
             'title',
             'image',
@@ -28,37 +59,13 @@ export default {
         ])
     },
 
-    async 'services' () {
-        return knex('services')
-            .innerJoin('Services AS page', 'page.name', 'services.page')
-            .orderBy('sort')
-            .select([
-                'services.title',
-                knex.raw(`page.path || '/' || services.slug AS path`)
-            ]);
-    },
 
 
-    async 'services_old' () {
-        return knex('services')
-            .innerJoin('Services AS page', 'page.name', 'services.page')
-            .orderBy('sort')
-            .select([
-                'services.title',
-                'services.description',
-                'services.icon',
-                knex.raw(`page.path || '/' || services.slug AS path`)
-            ]);
-    },
+    // ------------------
+    // Maps
+    // ------------------
 
-    async 'about' () {
-        return {
-            slides: await knex('about_slides').select('id', 'image', 'title').orderBy('sort'),
-            why: await knex('about_whys').select('id', 'image', 'title', 'description').orderBy('sort'),
-        }
-    },
-
-    'Services': {
+    'map-services': {
         keys: await knex('services').pluck('slug'),
         item (slug) {
             return knex('services')
@@ -69,20 +76,23 @@ export default {
                 .select([
                     'services.title',
                     'services.image',
-                    knex.raw(`JSON_AGG(JSON_BUILD_OBJECT(
-                        'id', services_sections.id,
-                        'image', services_sections.image,
-                        'description', services_sections.description
-                    ) ORDER BY services_sections.sort) AS sections`),
+                    knex.raw(`JSON_AGG(JSON_BUILD_OBJECT('id', services_sections.id, 'image', services_sections.image, 'description', services_sections.description) ORDER BY services_sections.sort) AS sections`),
                 ])
         }
     },
 
-    'Blogs': {
-        // keys: await knex('blogs').pluck('id'),
-        // item (id) {
-        //     return knex('blogs').where({ id }).select('title').first()
-        // }
+    'map:blogs': {
+        keys: await knex('articles').pluck('slug'),
+        item (slug) {
+            return knex('articles').where({ slug }).first().select([
+                'title',
+                'image',
+                'content',
+                'created_at'
+            ])
+        }
     },
+
+
 
 }

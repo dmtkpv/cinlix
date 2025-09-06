@@ -16,7 +16,8 @@
 
 <template>
     <main>
-        {{ DATA.title }}
+        <l-hero :value="DATA" heading />
+        <s-horizontal :value="DATA.sections" />
     </main>
 </template>
 
@@ -28,7 +29,7 @@
 
 <script setup>
 
-    import SERVICES from 'db:Services'
+    import MAP from 'db:map-services'
     import { defineOptions } from 'vue'
     import { usePreload } from '~/services/uses.js'
 
@@ -40,7 +41,7 @@
 
     defineOptions({
         preload (to) {
-            return SERVICES[to.params.slug]();
+            return MAP[to.params.slug]();
         }
     })
 
@@ -51,7 +52,6 @@
     // -------------------
 
     const DATA = usePreload();
-    // console.log(DATA)
 
 
 

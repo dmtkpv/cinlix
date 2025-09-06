@@ -39,6 +39,6 @@
 <script setup>
 
     import PAGES from 'db:pages'
-    import DATA from 'db:about'
+    import DATA from 'db:About'
 
 </script>

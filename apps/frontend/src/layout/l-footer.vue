@@ -160,7 +160,7 @@
 
             <div class="l-footer_cta">
                 <p>Let’s make awesome things together</p>
-                <ui-button text="Contact us" :to="{ name: 'contact' }" />
+                <ui-button text="Contact us" :to="{ name: 'Contact' }" />
             </div>
 
 
@@ -197,12 +197,11 @@
 <script setup>
 
     import PAGES from 'db:pages'
-    import SERVICES from 'db:services'
-    import CONTACT from 'db:contact'
+    import CONTACT from 'db:Contact'
 
     const navs = [
         [PAGES.About, PAGES.Articles, PAGES.Contact],
-        [...SERVICES]
+        [...PAGES.services]
     ]
 
     const addresses = [

@@ -15,7 +15,10 @@
 -->
 
 <template>
-    <div>{{ route.params }}</div>
+    <main>
+
+
+    </main>
 </template>
 
 
