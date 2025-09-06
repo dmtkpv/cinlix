@@ -40,9 +40,12 @@ export default {
                 .groupBy('services.id')
                 .select([
                     'services.title',
-                    'services.description',
                     'services.image',
-                    'services.title',
+                    knex.raw(`JSON_AGG(JSON_BUILD_OBJECT(
+                        'id', services_sections.id,
+                        'image', services_sections.image,
+                        'description', services_sections.description
+                    ) ORDER BY services_sections.sort) AS sections`),
                 ])
         }
     },

@@ -160,31 +160,29 @@
 -->
 
 <template>
-    <aside class="l-hero">
+    <div class="l-hero">
 
         <div class="l-hero_image" v-for="(slide, i) in slides" :class="{ _active: i === active }" @transitionend="enable">
-            <figure>
-                <ui-image :value="slide.image" />
-            </figure>
+            <ui-image :value="slide.image" bg="none" />
         </div>
 
         <div class="l-hero_text" v-for="(slide, i) in slides" :class="{ _active: i === active }">
-            {{ slide.title }}
+            <component :is="heading ? 'h1' : 'p'">{{ slide.title }}</component>
         </div>
 
-        <button class="l-hero_btn _prev" @click="move(-1)">
+        <button class="l-hero_btn _prev" v-if="controls" @click="move(-1)">
             <ic-left />
         </button>
 
-        <button class="l-hero_btn _next" @click="move(1)">
+        <button class="l-hero_btn _next" v-if="controls" @click="move(1)">
             <ic-right />
         </button>
 
-        <div class="l-hero_nav">
+        <div class="l-hero_nav" v-if="controls">
             <span v-for="(slide, i) in slides" :class="{ _active: i === active }" />
         </div>
 
-    </aside>
+    </div>
 </template>
 
 
@@ -196,16 +194,22 @@
 <script setup>
 
     import { computed, ref } from 'vue'
+    import UiImage from "../ui/ui-image.vue";
 
-    const props = defineProps([
-        'value'
-    ])
+    const props = defineProps({
+        value: [Object, Array],
+        heading: Boolean,
+    })
 
     const active = ref(0);
     const disabled = ref(false);
 
     const slides = computed(() => {
         return Array.isArray(props.value) ? props.value : [props.value];
+    })
+
+    const controls = computed(() => {
+        return slides.value.length > 1;
     })
 
     function move (delta) {

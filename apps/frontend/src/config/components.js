@@ -6,6 +6,7 @@ const modules = import.meta.glob([
     '~/icons/*',
     '~/items/*',
     '~/layout/*',
+    '~/sections/*',
     '~/ui/*',
 ], { eager: true })
 

@@ -162,7 +162,7 @@
 
         <div class="l-nav_blackout" />
 
-        <nav class="l-nav_dropdown" v-if="children">
+        <nav class="l-nav_dropdown" v-if="children" @click="leave">
             <router-link class="l-nav_link" v-for="child in children" :to="child.path">{{ child.title }}</router-link>
         </nav>
 

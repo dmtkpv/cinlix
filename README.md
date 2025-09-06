@@ -13,3 +13,4 @@ pages.create(() => {
 # TODO
 - backend: setup roles (public, admin)
 - frontend: ui-image size
+- frontend: 404 page
