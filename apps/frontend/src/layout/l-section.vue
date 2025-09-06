@@ -1,13 +1,36 @@
 <!--
+    Styles
+-->
+
+<style lang="scss">
+
+    .l-section {
+
+        padding-top: 100px;
+        padding-bottom: 160px;
+
+        &_heading {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+        }
+
+    }
+
+</style>
+
+
+
+<!--
     Template
 -->
 
 <template>
-    <section class="l-section pt-25 pb-40">
-<!--        <h1 class="wrapper font-black text-5xl text-center mb-20">{{ title }}</h1>-->
-<!--        <div class="grid" :class="{ wrapper }" :style="style">-->
-<!--            <slot />-->
-<!--        </div>-->
+    <section class="l-section">
+        <div class="container" :class="props.class">
+            <h2 v-if="title" class="l-section_heading">{{ title }}</h2>
+            <slot />
+        </div>
     </section>
 </template>
 
@@ -18,23 +41,11 @@
 -->
 
 <script setup>
-//
-//    import { computed } from "vue";
-//
-//    const props = defineProps<{
-//        title: string,
-//        wrapper?: boolean,
-//        grid: number,
-//        gap?: number
-//    }>()
-//
-//    const style = computed(() => {
-//        return {
-//            gap: `${props.gap ?? 0}px`,
-//            gridTemplateColumns: `repeat(${props.grid}, 1fr)`
-//        }
-//    })
 
-
+    const props = defineProps({
+        title: String,
+        class: String,
+        container: Boolean,
+    })
 
 </script>
