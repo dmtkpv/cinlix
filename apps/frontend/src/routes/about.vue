@@ -21,11 +21,8 @@
 
         <l-hero :value="DATA.slides" />
 
-        <l-section title="Why Us">
-            <section-why value="" />
-        </l-section>
+        <s-vertical title="Why Us" :value="DATA.why" />
 
-        <h1 v-for="n in 1000">A</h1>
 
     </main>
 </template>

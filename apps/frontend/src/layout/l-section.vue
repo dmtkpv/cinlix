@@ -13,6 +13,11 @@
             text-align: center;
             font-size: 48px;
             font-weight: 900;
+            margin-bottom: 80px;
+
+            @include sm {
+                font-size: 32px;
+            }
         }
 
     }
@@ -27,8 +32,8 @@
 
 <template>
     <section class="l-section">
+        <h2 v-if="title" class="l-section_heading container">{{ title }}</h2>
         <div class="container" :class="props.class">
-            <h2 v-if="title" class="l-section_heading">{{ title }}</h2>
             <slot />
         </div>
     </section>

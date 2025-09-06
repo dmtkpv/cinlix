@@ -1,13 +1,14 @@
 .container {
 
-    max-width: 1296px;
     margin-inline: auto;
 
     @include lg {
-        padding-inline: 48px;
+        max-width: 1440px;
+        padding-inline: 120px;
     }
 
     @include md {
+        max-width: 1088px;
         padding-inline: 32px;
     }
 
