@@ -35,11 +35,13 @@ export default {
         }
     },
 
-    async 'Blog' () {
-        return {
-            slides: await knex('about_slides').select('id', 'image', 'title').orderBy('sort'),
-            why: await knex('about_whys').select('id', 'image', 'title', 'description').orderBy('sort'),
-        }
+    async 'Articles' () {
+        return Promise.all([
+            knex('Articles').select('title', 'image').first(),
+            knex('articles').select('title', 'image', 'slug', 'created_at').orderBy('created_at', 'desc')
+        ]).then(([Articles, articles]) => {
+            return Object.assign(Articles, { articles })
+        })
     },
 
     async 'Contact' () {
@@ -81,7 +83,7 @@ export default {
         }
     },
 
-    'map:blogs': {
+    'map-articles': {
         keys: await knex('articles').pluck('slug'),
         item (slug) {
             return knex('articles').where({ slug }).first().select([

@@ -16,8 +16,16 @@
 
 <template>
     <main>
-        <l-hero :value="DATA" heading />
-        <s-horizontal :value="DATA.sections" />
+
+        <l-hero
+            :value="{ title: DATA.title, image: DATA.image }"
+            heading
+        />
+
+        <s-horizontal
+            :value="DATA.sections"
+        />
+
     </main>
 </template>
 

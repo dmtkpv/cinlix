@@ -63,13 +63,22 @@
             top: 50%;
 
             color: $white;
-            font-size: 48px;
-            font-weight: 900;
+
             padding: 0 80px;
             width: 100%;
             max-width: 800px;
             text-align: center;
             transform: translate(-50%, -50%);
+
+            p, h1 {
+                font-size: 48px;
+                font-weight: 900;
+            }
+
+            span {
+                display: block;
+                margin-top: 8px;
+            }
 
             &:not(._active) {
                 opacity: 0;
@@ -162,6 +171,7 @@
 
         <div class="l-hero_text" v-for="(slide, i) in slides" :class="{ _active: i === active }">
             <component :is="heading ? 'h1' : 'p'">{{ slide.title }}</component>
+            <span v-if="slide.note">{{ slide.note }}</span>
         </div>
 
         <button class="l-hero_btn _prev" v-if="controls" @click="move(-1)">

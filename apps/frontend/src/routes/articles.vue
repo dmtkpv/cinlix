@@ -17,6 +17,14 @@
 <template>
     <main>
 
+        <l-hero
+            :value="{ title: DATA.title, image: DATA.image }"
+            heading
+        />
+
+        <s-articles
+            :value="DATA.articles"
+        />
 
     </main>
 </template>
@@ -29,28 +37,6 @@
 
 <script setup>
 
-    import { watch } from 'vue'
-    import { useRoute } from 'vue-router'
-    import { useRouter } from 'vue-router'
-
-    // import blogs from 'db:Blogs'
-
-
-    const route = useRoute()
-    //
-    //
-    // console.log(blog);
-    //
-    //
-    watch(() => route.params.id, async (id) => {
-        console.log('!!')
-        const data = await blogs[id]()
-        console.log(data.default)
-
-        // import(`db:blog-${route.params.id}`)
-    }, {
-        immediate: true
-    })
-
+    import DATA from 'db:Articles'
 
 </script>

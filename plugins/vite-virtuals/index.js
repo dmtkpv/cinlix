@@ -30,7 +30,7 @@ export default function (configs) {
             keys.forEach(key => {
                 const id = `${name}-${key}`;
                 config[id] = () => item(key);
-                exports.push(`${key}: () => import('${prefix}:${id}').then(m => m.default)`);
+                exports.push(`'${key}': () => import('${prefix}:${id}').then(m => m.default)`);
             })
 
             config[name] = () => `{ ${exports.join(',')} }`
