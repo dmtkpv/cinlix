@@ -4,6 +4,7 @@
 
 const modules = import.meta.glob([
     '~/icons/*',
+    '~/inputs/*',
     '~/items/*',
     '~/layout/*',
     '~/sections/*',

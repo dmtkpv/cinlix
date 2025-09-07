@@ -25,6 +25,24 @@
 
 
 // -----------------
+// Input
+// -----------------
+
+.input {
+    display: block;
+    width: 100%;
+    border: 1px solid $gray;
+    padding: 12px;
+
+    &:focus {
+        outline: none;
+        border-color: $amber;
+    }
+
+}
+
+
+// -----------------
 // Modules
 // -----------------
 
@@ -43,3 +61,4 @@
     inset: 0;
     background: rgba(36, 36, 36, .65);
 }
+
