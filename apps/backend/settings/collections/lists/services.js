@@ -20,8 +20,8 @@ export default {
             width: 'half'
         }),
         slug: Fields.input({
-            required: true,
-            width: 'half'
+            width: 'half',
+            readonly: true,
         }),
         description: Fields.text({
             required: true,

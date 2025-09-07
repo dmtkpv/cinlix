@@ -2,7 +2,8 @@
   "type": "module",
   "scripts": {
     "backend": "CONFIG_PATH='config.js' pnpm --filter @this/backend",
-    "frontend": "pnpm --filter @this/frontend"
+    "frontend": "pnpm --filter @this/frontend",
+    "extensions": "pnpm --filter @this/extensions"
   },
   "pnpm": {
     "neverBuiltDependencies": []

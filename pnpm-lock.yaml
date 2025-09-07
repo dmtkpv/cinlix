@@ -10,9 +10,12 @@ importers:
 
   apps/backend:
     dependencies:
+      '@this/extensions':
+        specifier: workspace:*
+        version: link:../../plugins/extensions
       directus:
         specifier: 11.11.0
-        version: 11.11.0(@types/node@24.3.0)(@unhead/vue@2.0.14(vue@3.5.18(typescript@5.9.2)))(encoding@0.1.13)(lodash@4.17.21)(pinia@2.3.1(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2)))(sass@1.91.0)(terser@5.44.0)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))(yaml@2.8.1)
+        version: 11.11.0(@types/node@24.3.0)(encoding@0.1.13)(lodash@4.17.21)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))
       knex:
         specifier: 3.1.0
         version: 3.1.0(mysql2@3.14.3)(pg@8.16.3)(sqlite3@5.1.7)(tedious@18.6.1)
@@ -59,6 +62,16 @@ importers:
       vite-virtuals:
         specifier: workspace:*
         version: link:../../plugins/vite-virtuals
+
+  plugins/extensions:
+    dependencies:
+      slugify:
+        specifier: 1.6.6
+        version: 1.6.6
+    devDependencies:
+      '@directus/extensions-sdk':
+        specifier: 16.0.1
+        version: 16.0.1(@types/node@24.3.0)(@unhead/vue@2.0.14(vue@3.5.18(typescript@5.9.2)))(deep-diff@1.0.2)(express@4.21.2)(graphql@16.11.0)(knex@3.1.0)(nodemailer@7.0.5)(openapi3-ts@4.5.0)(pinia@2.3.1(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2)))(pino@9.7.0)(sass@1.91.0)(sharp@0.34.3)(terser@5.44.0)(tsx@4.20.3)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(ws@8.18.3)(yaml@2.8.1)
 
   plugins/vite-virtuals: {}
 
@@ -5061,6 +5074,10 @@ packages:
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
 
+  slugify@1.6.6:
+    resolution: {integrity: sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==}
+    engines: {node: '>=8.0.0'}
+
   smart-buffer@4.2.0:
     resolution: {integrity: sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==}
     engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
@@ -6772,7 +6789,7 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.4': {}
 
-  '@directus/api@30.0.0(@types/node@24.3.0)(@unhead/vue@2.0.14(vue@3.5.18(typescript@5.9.2)))(encoding@0.1.13)(lodash@4.17.21)(pinia@2.3.1(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2)))(sass@1.91.0)(terser@5.44.0)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))(yaml@2.8.1)':
+  '@directus/api@30.0.0(@types/node@24.3.0)(encoding@0.1.13)(lodash@4.17.21)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))':
     dependencies:
       '@authenio/samlify-node-xmllint': 2.0.0(samlify@2.10.1)
       '@aws-sdk/client-sesv2': 3.864.0
@@ -6782,7 +6799,7 @@ snapshots:
       '@directus/errors': 2.0.3
       '@directus/extensions': 3.0.10(deep-diff@1.0.2)(express@4.21.2)(graphql@16.11.0)(knex@3.1.0(pg@8.16.3))(mysql2@3.14.3)(nodemailer@7.0.5)(openapi3-ts@4.5.0)(pg@8.16.3)(pino@9.7.0)(sharp@0.34.3)(sqlite3@5.1.7)(tedious@18.6.1)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))(ws@8.18.3)
       '@directus/extensions-registry': 3.0.10(deep-diff@1.0.2)(express@4.21.2)(graphql@16.11.0)(knex@3.1.0(pg@8.16.3))(mysql2@3.14.3)(nodemailer@7.0.5)(openapi3-ts@4.5.0)(pg@8.16.3)(pino@9.7.0)(sharp@0.34.3)(sqlite3@5.1.7)(tedious@18.6.1)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))(ws@8.18.3)
-      '@directus/extensions-sdk': 16.0.1(@types/node@24.3.0)(@unhead/vue@2.0.14(vue@3.5.18(typescript@5.9.2)))(deep-diff@1.0.2)(express@4.21.2)(graphql@16.11.0)(knex@3.1.0(pg@8.16.3))(mysql2@3.14.3)(nodemailer@7.0.5)(openapi3-ts@4.5.0)(pg@8.16.3)(pinia@2.3.1(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2)))(pino@9.7.0)(sass@1.91.0)(sharp@0.34.3)(sqlite3@5.1.7)(tedious@18.6.1)(terser@5.44.0)(tsx@4.20.3)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(ws@8.18.3)(yaml@2.8.1)
+      '@directus/extensions-sdk': 16.0.1(@types/node@24.3.0)(deep-diff@1.0.2)(express@4.21.2)(graphql@16.11.0)(knex@3.1.0(pg@8.16.3))(mysql2@3.14.3)(nodemailer@7.0.5)(openapi3-ts@4.5.0)(pg@8.16.3)(pino@9.7.0)(sharp@0.34.3)(sqlite3@5.1.7)(tedious@18.6.1)(tsx@4.20.3)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(ws@8.18.3)
       '@directus/format-title': 12.0.1
       '@directus/memory': 3.0.8(vue@3.5.18(typescript@5.9.2))
       '@directus/pressure': 3.0.8(vue@3.5.18(typescript@5.9.2))
@@ -6823,7 +6840,7 @@ snapshots:
       date-fns: 4.1.0
       deep-diff: 1.0.2
       destroy: 1.2.0
-      directus: 11.11.0(@types/node@24.3.0)(@unhead/vue@2.0.14(vue@3.5.18(typescript@5.9.2)))(encoding@0.1.13)(lodash@4.17.21)(pinia@2.3.1(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2)))(sass@1.91.0)(terser@5.44.0)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))(yaml@2.8.1)
+      directus: 11.11.0(@types/node@24.3.0)(encoding@0.1.13)(lodash@4.17.21)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))
       dotenv: 17.2.1
       encodeurl: 2.0.0
       eventemitter2: 6.4.9
@@ -7041,7 +7058,70 @@ snapshots:
       - vue-router
       - ws
 
-  '@directus/extensions-sdk@16.0.1(@types/node@24.3.0)(@unhead/vue@2.0.14(vue@3.5.18(typescript@5.9.2)))(deep-diff@1.0.2)(express@4.21.2)(graphql@16.11.0)(knex@3.1.0(pg@8.16.3))(mysql2@3.14.3)(nodemailer@7.0.5)(openapi3-ts@4.5.0)(pg@8.16.3)(pinia@2.3.1(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2)))(pino@9.7.0)(sass@1.91.0)(sharp@0.34.3)(sqlite3@5.1.7)(tedious@18.6.1)(terser@5.44.0)(tsx@4.20.3)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(ws@8.18.3)(yaml@2.8.1)':
+  '@directus/extensions-sdk@16.0.1(@types/node@24.3.0)(@unhead/vue@2.0.14(vue@3.5.18(typescript@5.9.2)))(deep-diff@1.0.2)(express@4.21.2)(graphql@16.11.0)(knex@3.1.0)(nodemailer@7.0.5)(openapi3-ts@4.5.0)(pinia@2.3.1(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2)))(pino@9.7.0)(sass@1.91.0)(sharp@0.34.3)(terser@5.44.0)(tsx@4.20.3)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(ws@8.18.3)(yaml@2.8.1)':
+    dependencies:
+      '@directus/composables': 11.2.2(vue@3.5.18(typescript@5.9.2))
+      '@directus/constants': 13.0.2
+      '@directus/extensions': 3.0.10(deep-diff@1.0.2)(express@4.21.2)(graphql@16.11.0)(knex@3.1.0(pg@8.16.3))(mysql2@3.14.3)(nodemailer@7.0.5)(openapi3-ts@4.5.0)(pg@8.16.3)(pino@9.7.0)(sharp@0.34.3)(sqlite3@5.1.7)(tedious@18.6.1)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))(ws@8.18.3)
+      '@directus/themes': 1.1.4(@unhead/vue@2.0.14(vue@3.5.18(typescript@5.9.2)))(pinia@2.3.1(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))
+      '@directus/types': 13.2.2(deep-diff@1.0.2)(express@4.21.2)(graphql@16.11.0)(knex@3.1.0(pg@8.16.3))(mysql2@3.14.3)(nodemailer@7.0.5)(openapi3-ts@4.5.0)(pg@8.16.3)(pino@9.7.0)(sharp@0.34.3)(sqlite3@5.1.7)(tedious@18.6.1)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))(ws@8.18.3)
+      '@directus/utils': 13.0.9(vue@3.5.18(typescript@5.9.2))
+      '@rollup/plugin-commonjs': 28.0.6(rollup@4.46.2)
+      '@rollup/plugin-json': 6.1.0(rollup@4.46.2)
+      '@rollup/plugin-node-resolve': 16.0.1(rollup@4.46.2)
+      '@rollup/plugin-replace': 6.0.2(rollup@4.46.2)
+      '@rollup/plugin-terser': 0.4.4(rollup@4.46.2)
+      '@rollup/plugin-virtual': 3.0.2(rollup@4.46.2)
+      '@vitejs/plugin-vue': 6.0.1(vite@7.1.3(@types/node@24.3.0)(sass@1.91.0)(terser@5.44.0)(tsx@4.20.3)(yaml@2.8.1))(vue@3.5.18(typescript@5.9.2))
+      chalk: 5.4.1
+      commander: 14.0.0
+      esbuild: 0.25.9
+      execa: 9.6.0
+      fs-extra: 11.3.0
+      inquirer: 12.9.0(@types/node@24.3.0)
+      ora: 8.2.0
+      rollup: 4.46.2
+      rollup-plugin-esbuild: 6.2.1(esbuild@0.25.9)(rollup@4.46.2)
+      rollup-plugin-styler: 2.0.0(rollup@4.46.2)(typescript@5.9.2)
+      semver: 7.7.2
+      vite: 7.1.3(@types/node@24.3.0)(sass@1.91.0)(terser@5.44.0)(tsx@4.20.3)(yaml@2.8.1)
+      vue: 3.5.18(typescript@5.9.2)
+    transitivePeerDependencies:
+      - '@types/node'
+      - '@unhead/vue'
+      - better-sqlite3
+      - debug
+      - deep-diff
+      - express
+      - graphql
+      - jiti
+      - knex
+      - less
+      - lightningcss
+      - mysql
+      - mysql2
+      - nodemailer
+      - openapi3-ts
+      - pg
+      - pg-native
+      - pinia
+      - pino
+      - sass
+      - sass-embedded
+      - sharp
+      - sqlite3
+      - stylus
+      - sugarss
+      - supports-color
+      - tedious
+      - terser
+      - tsx
+      - typescript
+      - vue-router
+      - ws
+      - yaml
+
+  '@directus/extensions-sdk@16.0.1(@types/node@24.3.0)(deep-diff@1.0.2)(express@4.21.2)(graphql@16.11.0)(knex@3.1.0(pg@8.16.3))(mysql2@3.14.3)(nodemailer@7.0.5)(openapi3-ts@4.5.0)(pg@8.16.3)(pino@9.7.0)(sharp@0.34.3)(sqlite3@5.1.7)(tedious@18.6.1)(tsx@4.20.3)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(ws@8.18.3)':
     dependencies:
       '@directus/composables': 11.2.2(vue@3.5.18(typescript@5.9.2))
       '@directus/constants': 13.0.2
@@ -9450,9 +9530,9 @@ snapshots:
 
   detect-libc@2.0.4: {}
 
-  directus@11.11.0(@types/node@24.3.0)(@unhead/vue@2.0.14(vue@3.5.18(typescript@5.9.2)))(encoding@0.1.13)(lodash@4.17.21)(pinia@2.3.1(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2)))(sass@1.91.0)(terser@5.44.0)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))(yaml@2.8.1):
+  directus@11.11.0(@types/node@24.3.0)(encoding@0.1.13)(lodash@4.17.21)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2)):
     dependencies:
-      '@directus/api': 30.0.0(@types/node@24.3.0)(@unhead/vue@2.0.14(vue@3.5.18(typescript@5.9.2)))(encoding@0.1.13)(lodash@4.17.21)(pinia@2.3.1(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2)))(sass@1.91.0)(terser@5.44.0)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))(yaml@2.8.1)
+      '@directus/api': 30.0.0(@types/node@24.3.0)(encoding@0.1.13)(lodash@4.17.21)(typescript@5.9.2)(vue-router@4.5.1(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))
       '@directus/update-check': 13.0.2
     transitivePeerDependencies:
       - '@fastify/websocket'
@@ -11990,6 +12070,8 @@ snapshots:
   simple-swizzle@0.2.2:
     dependencies:
       is-arrayish: 0.3.2
+
+  slugify@1.6.6: {}
 
   smart-buffer@4.2.0: {}
 

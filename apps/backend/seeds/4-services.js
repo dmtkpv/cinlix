@@ -86,5 +86,6 @@ export async function seed (knex) {
     await knex('Services').insert(Services);
     await knex('services').insert(services);
     await knex('services_sections').insert(sections);
+    await knex.raw(`SELECT setval('services_id_seq', (SELECT MAX(id) FROM services))`);
 
 }

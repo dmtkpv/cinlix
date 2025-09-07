@@ -8,3 +8,4 @@ apps/backend/uploads
 !apps/backend/uploads/service-production.svg
 !apps/backend/uploads/service-social.svg
 apps/frontend/dist
+plugins/extensions/dist
