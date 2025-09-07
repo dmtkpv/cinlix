@@ -70,13 +70,14 @@
                 right: 0;
                 bottom: 0;
                 width: 240px;
+                overflow: auto;
                 background: $white;
                 padding: 12px 24px;
                 transform: translateX(100%);
                 transition: transform $duration;
             }
 
-            @at-root ._opened & {
+            @at-root ._nav & {
                 transform: translateX(0);
             }
 
@@ -106,12 +107,38 @@
                 display: none;
             }
 
-            @at-root ._opened & {
+            @at-root ._nav & {
                 transform: rotate(-90deg);
                 rect:nth-child(1) { transform: translateY(7px) rotate(45deg) }
                 rect:nth-child(2) { transform: scaleX(0) }
                 rect:nth-child(3) { transform: translateY(-7px) rotate(-45deg) }
             }
+
+        }
+
+
+
+        // -----------------
+        // Blackout
+        // -----------------
+
+        &_blackout {
+
+            top: $header;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity $duration, visibility 0s $duration;
+
+            @include lg-md {
+                display: none;
+            }
+
+            @at-root ._nav & {
+                visibility: visible;
+                opacity: 1;
+                transition: opacity $duration;
+            }
+
 
         }
 
@@ -130,7 +157,7 @@
 
 <template>
 
-    <header class="l-header" :class="{ _opened: menu }">
+    <header class="l-header" :class="{ _nav: state.nav }">
         <div class="container">
 
 
@@ -144,9 +171,14 @@
 
             <!-- menu -->
 
-            <button class="l-header_menu" @click="menu = !menu">
+            <button class="l-header_menu" @click="state.nav = !state.nav">
                 <ic-menu />
             </button>
+
+
+            <!-- blackout -->
+
+            <div class="l-header_blackout blackout" @click="state.nav = false" />
 
 
             <!-- nav -->
@@ -154,6 +186,7 @@
             <nav class="l-header_nav">
                 <l-nav v-for="item in nav" v-bind="item" />
             </nav>
+
 
         </div>
     </header>
@@ -167,8 +200,11 @@
 
 <script setup>
 
-    import { ref } from 'vue'
+    import { watch, onMounted, onUnmounted } from 'vue'
+    import { useRoute } from 'vue-router'
     import PAGES from 'db:pages'
+    import styles from '~/styles/abstract.module.scss'
+    import { useState } from '~/services/uses.js'
 
     const nav = [
         { title: PAGES.About.title, path: PAGES.About.path },
@@ -177,6 +213,24 @@
         { title: PAGES.Contact.title, path: PAGES.Contact.path },
     ]
 
-    const menu = ref(false);
+    const state = useState();
+    const route = useRoute();
+    const sm = parseFloat(styles.sm);
+
+    function resize () {
+        if (window.innerWidth > sm) state.nav = false;
+    }
+
+    watch(route, () => {
+        state.nav = false;
+    })
+
+    onMounted(() => {
+        window.addEventListener('resize', resize);
+    })
+
+    onUnmounted(() => {
+        window.removeEventListener('resize', resize);
+    })
 
 </script>

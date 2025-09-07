@@ -51,9 +51,10 @@ export default {
     css: {
         preprocessorOptions: {
             scss: {
-                additionalData: `
-                    @use "~/styles/abstract" as *;
-                `,
+                additionalData: (content, ctx) => {
+                    if (ctx.includes('abstract.module.scss')) return content
+                    return `@use "~/styles/abstract.module" as *;\n${content}`
+                },
             }
         }
     },

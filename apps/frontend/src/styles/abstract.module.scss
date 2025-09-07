@@ -57,3 +57,14 @@ $sm: 768px;
     &:active { @content }
     @media (hover: hover) { &:hover { @content }}
 }
+
+
+
+// -----------------
+// Exports
+// -----------------
+
+:export {
+    md: $md;
+    sm: $sm;
+}
