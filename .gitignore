@@ -1,6 +1,7 @@
 .env
 .idea
 node_modules
+apps/backend/extensions
 apps/backend/uploads
 !apps/backend/uploads/default.png
 !apps/backend/uploads/service-cooperation.svg
@@ -8,4 +9,3 @@ apps/backend/uploads
 !apps/backend/uploads/service-production.svg
 !apps/backend/uploads/service-social.svg
 apps/frontend/dist
-plugins/extensions/dist

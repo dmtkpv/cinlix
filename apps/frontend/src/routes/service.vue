@@ -38,7 +38,6 @@
 <script setup>
 
     import MAP from 'db:map-services'
-    import { defineOptions } from 'vue'
     import { usePreload } from '~/services/uses.js'
 
 

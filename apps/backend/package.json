@@ -1,19 +1,46 @@
 {
   "type": "module",
   "name": "@this/backend",
+  "version": "1.0.0",
   "scripts": {
     "bootstrap": "directus bootstrap",
     "serve": "directus start",
     "seed": "knex seed:run",
     "migrate:up": "knex migrate:up",
     "migrate:down": "knex migrate:down",
-    "migrate:latest": "knex migrate:latest"
+    "migrate:latest": "knex migrate:latest",
+    "build": "directus-extension build",
+    "watch": "directus-extension build -w --no-minify"
   },
   "dependencies": {
-    "@this/extensions": "workspace:*",
     "directus": "11.11.0",
     "knex": "3.1.0",
-    "lodash-es": "4.17.21"
+    "lodash-es": "4.17.21",
+    "slugify": "1.6.6"
+  },
+  "devDependencies": {
+    "@directus/extensions-sdk": "16.0.1",
+    "@this/frontend": "workspace:*"
+  },
+  "directus:extension": {
+    "type": "bundle",
+    "host": "^10.10.0",
+    "path": {
+      "app": "extensions/bundle/dist/app.js",
+      "api": "extensions/bundle/dist/api.js"
+    },
+    "entries": [
+      {
+        "type": "hook",
+        "name": "hook-slugify",
+        "source": "hooks/slugify.js"
+      },
+      {
+        "type": "hook",
+        "name": "hook-build",
+        "source": "hooks/build.js"
+      }
+    ]
   },
   "exports": {
     "./database": "./knexfile.js"
