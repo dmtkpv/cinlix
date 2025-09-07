@@ -1,0 +1,11 @@
+**
+
+!package.json
+!pnpm-workspace.yaml
+!apps/**
+!plugins/**
+
+**/node_modules
+apps/backend/extensions
+apps/backend/uploads
+apps/frontend/dist
