@@ -28,6 +28,10 @@ export default {
         port: FRONTEND_PORT
     },
 
+    preview: {
+        port: FRONTEND_PORT
+    },
+
     plugins: [
         vue(),
         svg({ svgo: false }),

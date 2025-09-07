@@ -176,7 +176,7 @@
     <section class="s-hero" @swiped-left="move(1)" @swiped-right="move(-1)">
 
         <div class="s-hero_image" v-for="(slide, i) in slides" :class="{ _active: i === active }" @transitionend="enable">
-            <ui-image :value="slide.image" bg="none" />
+            <ui-image :value="slide.image" bg="none" width="1920" />
         </div>
 
         <div class="s-hero_text" v-for="(slide, i) in slides" :class="{ _active: i === active }">

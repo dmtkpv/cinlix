@@ -49,14 +49,18 @@
 
     const props = defineProps({
         value: String,
-        bg: String
+        bg: String,
+        width: {
+            type: String,
+            default: '512'
+        },
     })
 
     const _loaded = ref(false);
     const $img = ref(null);
 
     const src = computed(() => {
-        return `${BACKEND_URL}/assets/${props.value}`
+        return `${BACKEND_URL}/assets/${props.value}?width=${props.width}`
     })
 
     onMounted(() => {
