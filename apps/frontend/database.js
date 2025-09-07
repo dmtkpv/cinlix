@@ -18,6 +18,14 @@ export default {
         return { About, Articles, Contact, Services, services }
     },
 
+    async 'errors' () {
+        const errors = await knex('errors').select('code', 'image', 'title', 'description');
+        return errors.reduce((acc, error) => {
+            acc[error.code] = error;
+            return acc;
+        }, {})
+    },
+
 
 
     // ------------------

@@ -1,6 +1,10 @@
-import { reactive, watch } from 'vue'
+import { reactive, watch, inject } from 'vue'
 import { useRoute } from 'vue-router'
 import { empty } from '~/services/utils.js'
+
+export function useState () {
+    return inject('state');
+}
 
 export function usePreload () {
     const route = useRoute();
@@ -11,3 +15,4 @@ export function usePreload () {
     })
     return data;
 }
+

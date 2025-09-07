@@ -23,7 +23,8 @@
 <template>
     <l-header />
 <!--    <l-blackout />-->
-    <router-view />
+    <l-error v-if="state.error" :code="state.error" />
+    <router-view v-else />
     <l-footer />
 </template>
 
@@ -35,6 +36,9 @@
 
 <script setup>
 
+    import { useState } from '~/services/uses.js'
+    import LError from '~/routes/error.vue'
 
+    const state = useState()
 
 </script>

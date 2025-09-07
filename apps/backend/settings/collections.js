@@ -3,11 +3,13 @@ import Articles from './collections/pages/Articles.js'
 import Contact from './collections/pages/Contact.js'
 import Services from './collections/pages/Services.js'
 
-import articles from './collections/lists/articles.js'
 import about_slides from './collections/lists/about_slides.js'
 import about_whys from './collections/lists/about_whys.js'
+import articles from './collections/lists/articles.js'
 import services from './collections/lists/services.js'
 import services_sections from './collections/lists/services_sections.js'
+
+import errors from './collections/system/errors.js'
 
 
 
@@ -37,11 +39,15 @@ const pages = group('pages', [
 ])
 
 const lists = group('lists', [
-    articles,
     about_slides,
     about_whys,
+    articles,
     services,
     services_sections,
+])
+
+const system = group('system', [
+    errors,
 ])
 
 
@@ -54,4 +60,5 @@ export default [
     ...groups,
     ...pages,
     ...lists,
+    ...system
 ];

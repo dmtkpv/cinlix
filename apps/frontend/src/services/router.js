@@ -1,7 +1,7 @@
 import createRouter from '@dmtkpv/ssg/createRouter'
 import routes from '~/config/routes.js'
 
-export default function () {
+export default function ({ state }) {
 
     const router = createRouter({
         routes,
@@ -26,9 +26,20 @@ export default function () {
             to.meta.preload = data.reduce((acc, value) => Object.assign(acc, value), {});
         }
         catch (error) {
-            console.error(error)
+            to.meta.error = '404'
         }
 
+    })
+
+
+
+    // -------------------
+    // After each
+    // -------------------
+
+    router.afterEach(to => {
+        if (to.meta.error) state.error = to.meta.error;
+        else delete state.error;
     })
 
 

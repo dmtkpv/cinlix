@@ -16,9 +16,8 @@ export default [
         path: PAGES.Services.path,
         children: [
             {
-                name: 'Services',
                 path: '',
-                component: Error
+                component: Error,
             },
             {
                 name: 'Service',
@@ -41,5 +40,9 @@ export default [
                 component: () => import('~/routes/article.vue')
             }
         ],
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        component: Error,
     },
 ];

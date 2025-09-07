@@ -86,6 +86,14 @@ export async function up (knex) {
         table.defaults();
     })
 
+    await knex.schema.createTable('errors', table => {
+        table.string('code').primary();
+        table.string('title').notNullable();
+        table.string('description').notNullable();
+        table.file('image').notNullable();
+        table.defaults();
+    })
+
 }
 
 
@@ -96,6 +104,7 @@ export async function up (knex) {
 
 export async function down (knex) {
 
+    await knex.schema.dropTable('errors');
     await knex.schema.dropTable('Contact');
 
     await knex.schema.dropTable('articles');
