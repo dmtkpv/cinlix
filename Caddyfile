@@ -3,10 +3,11 @@
     root * /www
     encode gzip
 
-    @staticFiles {
+    @static {
+        file
         path *.css *.js
     }
-    header @staticFiles Cache-Control "public, max-age=31536000, immutable"
+    header @static Cache-Control max-age=5184000
 
     file_server
 
