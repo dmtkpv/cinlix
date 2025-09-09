@@ -3,8 +3,10 @@ import build from '@this/frontend/build'
 
 
 // ------------------
-// Collections
+// Data
 // ------------------
+
+const { NODE_ENV } = process.env;
 
 const collections = [
     'About',
@@ -46,6 +48,8 @@ async function debounce () {
 // ------------------
 
 export default ({ action }) => {
+
+    if (NODE_ENV === 'development') return;
 
     debounce();
 

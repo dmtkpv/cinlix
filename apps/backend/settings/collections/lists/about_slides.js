@@ -19,6 +19,12 @@ export default {
         image: Fields.image({
             required: true,
         }),
+        logo: Fields.boolean({
+            width: 'half'
+        }),
+        blur: Fields.boolean({
+            width: 'half'
+        }),
         title: Fields.input({
             required: true,
         })
