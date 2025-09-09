@@ -87,13 +87,13 @@
 
 <template>
     <l-section :container-class="['s-cols', ...classes]" :container-style="style" :style="{ background: bg }">
-        <article v-for="item in value">
+        <component v-for="item in value" :is="item.path ? 'router-link' : 'article'" :to="item.path">
 
             <ui-image :value="item.image" :style="image" :bg="props.image.bg" />
             <h3>{{ item.title }}</h3>
             <p>{{ item.description }}</p>
 
-        </article>
+        </component>
     </l-section>
 </template>
 

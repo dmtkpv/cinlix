@@ -1,5 +1,21 @@
 import { knex } from '@this/backend/database'
 
+function getServices (...columns) {
+    return knex('services')
+        .innerJoin('Services', 'Services.name', 'services.page')
+        .orderBy('services.sort')
+        .select(knex.raw(`"Services".path || '/' || services.slug AS path`))
+        .select(columns.map(column => `services.${column}`))
+}
+
+function getArticles (...columns) {
+    return knex('articles')
+        .innerJoin('Articles', 'Articles.name', 'articles.page')
+        .orderBy('articles.created_at', 'desc')
+        .select(knex.raw(`"Articles".path || '/' || articles.slug AS path`))
+        .select(columns.map(column => `articles.${column}`))
+}
+
 export default {
 
 
@@ -13,8 +29,7 @@ export default {
         const Articles = await knex('Articles').select('path', 'title').first()
         const Contact = await knex('Contact').select('path', 'title').first()
         const Services = await knex('Services').select('path', 'title').first()
-        const services = await knex('services').select('slug', 'title')
-        services.forEach(service => service.path = `${Services.path}/${service.slug}`)
+        const services = await getServices('title');
         return { About, Articles, Contact, Services, services }
     },
 
@@ -36,14 +51,14 @@ export default {
         const slides = await knex('about_slides').select('id', 'image', 'title', 'logo', 'blur').orderBy('sort')
         const why = await knex('about_whys').select('id', 'image', 'title', 'description').orderBy('sort')
         const how = await knex('about_hows').select('id', 'image', 'title', 'description').orderBy('sort')
-        const services = await knex('services').select('title', 'slug', 'description', knex.raw('icon AS image')).orderBy('sort')
-        const articles = await knex('articles').select('title', 'image', 'slug', 'created_at').orderBy('created_at', 'desc').limit(4)
+        const services = await getServices('id', 'title', 'description', 'icon AS image')
+        const articles = await getArticles('title', 'image').limit(4)
         return { slides, why, how, services, articles }
     },
 
     async 'Articles' () {
         const Articles = await knex('Articles').select('title', 'image').first()
-        const articles = await knex('articles').select('title', 'image', 'slug', 'created_at').orderBy('created_at', 'desc')
+        const articles = await getArticles('title', 'image')
         return Object.assign(Articles, { articles })
     },
 
