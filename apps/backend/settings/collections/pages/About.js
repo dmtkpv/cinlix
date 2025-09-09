@@ -36,6 +36,14 @@ export default {
                 sort: 'sort'
             }
         }),
+        how_we_work: Fields.o2m({
+            required: true,
+            template: '{{ title }}',
+            options: {
+                enableSelect: false,
+                sort: 'sort'
+            }
+        }),
     },
 
 };

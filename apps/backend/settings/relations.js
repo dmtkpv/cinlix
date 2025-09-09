@@ -13,10 +13,10 @@ const m2m = []
 const o2m = [
     ['About', 'slides', 'about_slides', 'page', null, 'sort', 'delete'],
     ['About', 'why_us', 'about_whys', 'page', null, 'sort', 'delete'],
+    ['About', 'how_we_work', 'about_hows', 'page', null, 'sort', 'delete'],
     ['Articles', 'articles', 'articles', 'page', null, null, 'delete'],
     ['Services', 'services', 'services', 'page', null, 'sort', 'delete'],
     ['services', 'sections', 'services_sections', 'service', null, 'sort', 'delete'],
-    // ['directus_files', null, 'about_slides', 'image', null, null, 'delete'],
 ];
 
 

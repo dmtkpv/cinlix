@@ -3,6 +3,7 @@ import Articles from './collections/pages/Articles.js'
 import Contact from './collections/pages/Contact.js'
 import Services from './collections/pages/Services.js'
 
+import about_hows from './collections/lists/about_hows.js'
 import about_slides from './collections/lists/about_slides.js'
 import about_whys from './collections/lists/about_whys.js'
 import articles from './collections/lists/articles.js'
@@ -39,6 +40,7 @@ const pages = group('pages', [
 ])
 
 const lists = group('lists', [
+    about_hows,
     about_slides,
     about_whys,
     articles,
