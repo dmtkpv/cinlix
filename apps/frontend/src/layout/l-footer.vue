@@ -143,7 +143,7 @@
     import PAGES from 'db:pages'
 
     const navs = [
-        [PAGES.About, PAGES.Articles, PAGES.Contact],
+        [PAGES.About, PAGES.Quote, PAGES.Contact, PAGES.Team, PAGES.Work, PAGES.Privacy, PAGES.Articles],
         [...PAGES.services]
     ]
 
