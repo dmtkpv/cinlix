@@ -15,13 +15,13 @@
         display: grid;
 
         @include lg-md {
-            grid-template-columns: repeat(3, minmax(0, 320px));
             gap: 32px;
             justify-content: space-between;
         }
 
         @include sm {
             gap: 80px;
+            grid-template-columns: 1fr !important;
         }
 
 
@@ -29,10 +29,6 @@
         // -----------------
         // Elements
         // -----------------
-
-        .ui-image {
-            aspect-ratio: 3 / 2;
-        }
 
         h3 {
             font-size: 20px;
@@ -48,6 +44,37 @@
 
 
 
+        // -----------------
+        // Center
+        // -----------------
+
+        &._center {
+            text-align: center;
+            .ui-image { margin-inline: auto; }
+        }
+
+
+
+        // -----------------
+        // Service
+        // -----------------
+
+        &._service {
+            @include sm {
+                gap: 32px;
+            }
+        }
+
+        &._service > * {
+            border: 1px solid $gray;
+            padding: 32px 32px 84px 32px;
+            &:nth-child(4n-3), &:nth-child(4n) {
+                background: $gray-light;
+            }
+        }
+
+
+
     }
 
 </style>
@@ -59,10 +86,10 @@
 -->
 
 <template>
-    <l-section container-class="s-cols">
+    <l-section :container-class="['s-cols', ...classes]" :container-style="style" :style="{ background: bg }">
         <article v-for="item in value">
 
-            <ui-image :value="item.image" />
+            <ui-image :value="item.image" :style="image" :bg="props.image.bg" />
             <h3>{{ item.title }}</h3>
             <p>{{ item.description }}</p>
 
@@ -78,8 +105,37 @@
 
 <script setup>
 
-    defineProps({
-        value: Array
+    import { computed } from 'vue'
+    import LSection from "../layout/l-section.vue";
+    import UiImage from "../ui/ui-image.vue";
+
+    const props = defineProps({
+        columns: Number,
+        bg: String,
+        image: Object,
+        modifiers: Array,
+        value: Array,
+        maxWidth: Number
+    })
+
+    const classes = computed(() => {
+        return props.modifiers?.map(modifier => `_${modifier}`) ?? [];
+    })
+
+    const style = computed(() => {
+        const w = props.maxWidth ? `minmax(0, ${props.maxWidth}px)` : '1fr';
+        return {
+            gridTemplateColumns: `repeat(${props.columns}, ${w})`
+        }
+    })
+
+    const image = computed(() => {
+        const size = props.image.size ? `${props.image.size}px` : undefined;
+        return {
+            width: size,
+            height: size,
+            aspectRatio: props.image.ratio
+        }
     })
 
 </script>

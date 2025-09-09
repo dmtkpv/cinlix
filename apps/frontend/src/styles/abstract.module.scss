@@ -65,6 +65,16 @@ $sm: 768px;
 // -----------------
 
 :export {
+
     md: $md;
     sm: $sm;
+
+    grayLight: $gray-light;
+    grayDark: $gray-dark;
+    gray: $gray;
+    black: $black;
+    blackLight: $black-light;
+    amber: $amber;
+    amberDark: $amber-dark;
+
 }

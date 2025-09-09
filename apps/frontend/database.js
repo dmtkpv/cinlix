@@ -35,9 +35,10 @@ export default {
     async 'About' () {
         const slides = await knex('about_slides').select('id', 'image', 'title', 'logo', 'blur').orderBy('sort')
         const why = await knex('about_whys').select('id', 'image', 'title', 'description').orderBy('sort')
-        const services = await knex('services').select('title', 'slug', 'description', 'icon').orderBy('sort')
+        const how = await knex('about_hows').select('id', 'image', 'title', 'description').orderBy('sort')
+        const services = await knex('services').select('title', 'slug', 'description', knex.raw('icon AS image')).orderBy('sort')
         const articles = await knex('articles').select('title', 'image', 'slug', 'created_at').orderBy('created_at', 'desc').limit(4)
-        return { slides, why, services, articles }
+        return { slides, why, how, services, articles }
     },
 
     async 'Articles' () {
