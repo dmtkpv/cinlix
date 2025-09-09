@@ -15,6 +15,7 @@
         position: relative;
         height: calc(100vh - $header);
         height: calc(100svh - $header);
+        max-height: 600px;
 
         &_image { z-index: 1; }
         &_text, &_btn, &_nav { z-index: 2; }
@@ -48,6 +49,10 @@
                 transition: opacity 1s;
             }
 
+            &._blur .ui-image {
+                filter: blur(20px);
+            }
+
         }
 
 
@@ -64,16 +69,23 @@
             color: $white;
             width: 100%;
             max-width: 800px;
-            text-align: center;
             transform: translate(-50%, -50%);
 
-            p, h1 {
+            display: grid;
+            justify-items: center;
+
+            svg {
+                height: 96px;
+                margin-bottom: 24px;
+            }
+
+            h1, p {
                 font-size: 48px;
-                font-weight: 900;
+                text-align: center;
                 @include sm { font-size: 32px;  }
             }
 
-            span {
+            &_note {
                 display: block;
                 margin-top: 8px;
             }
@@ -175,12 +187,13 @@
 <template>
     <section class="s-hero" @swiped-left="move(1)" @swiped-right="move(-1)">
 
-        <div class="s-hero_image" v-for="(slide, i) in slides" :class="{ _active: i === active }" @transitionend="enable">
+        <div class="s-hero_image" v-for="(slide, i) in slides" :class="{ _active: i === active, _blur: slide.blur }" @transitionend="enable">
             <ui-image :value="slide.image" bg="none" width="1920" />
         </div>
 
         <div class="s-hero_text" v-for="(slide, i) in slides" :class="{ _active: i === active }">
-            <component :is="heading ? 'h1' : 'p'">{{ slide.title }}</component>
+            <ic-logo v-if="slide.logo" />
+            <component :is="heading ? 'h1' : 'p'" :style="{ fontWeight: slide.logo ? 600 : 900 }">{{ slide.title }}</component>
             <span v-if="slide.note">{{ slide.note }}</span>
         </div>
 

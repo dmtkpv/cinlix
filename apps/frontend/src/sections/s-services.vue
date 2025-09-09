@@ -29,7 +29,7 @@
         }
 
         .ui-image {
-            width: 60px;
+            width: 80px;
             aspect-ratio: 1;
         }
 
