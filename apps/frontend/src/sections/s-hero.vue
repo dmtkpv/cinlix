@@ -15,7 +15,10 @@
         position: relative;
         height: calc(100vh - $header);
         height: calc(100svh - $header);
-        max-height: 600px;
+
+        &:not(._full) {
+            max-height: 600px;
+        }
 
         &_image { z-index: 1; }
         &_text, &_btn, &_nav { z-index: 2; }
@@ -185,7 +188,7 @@
 -->
 
 <template>
-    <section class="s-hero" @swiped-left="move(1)" @swiped-right="move(-1)">
+    <section class="s-hero" :class="{ _full: full }" @swiped-left="move(1)" @swiped-right="move(-1)">
 
         <div class="s-hero_image" v-for="(slide, i) in slides" :class="{ _active: i === active, _blur: slide.blur }" @transitionend="enable">
             <ui-image :value="slide.image" bg="none" width="1920" />
@@ -226,6 +229,7 @@
     const props = defineProps({
         value: [Object, Array],
         heading: Boolean,
+        full: Boolean
     })
 
     const active = ref(0);

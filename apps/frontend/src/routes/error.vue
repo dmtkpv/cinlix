@@ -16,7 +16,7 @@
 
 <template>
     <main>
-       <s-hero :value="hero" />
+       <s-hero :value="hero" full />
     </main>
 </template>
 
