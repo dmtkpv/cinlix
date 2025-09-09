@@ -2,15 +2,7 @@ icons
 https://icon-sets.iconify.design/ri/
 
 
-```js
-pages.create(() => {
-    // build
-    // render page
-})
-```
-
-
-# TODO
+## TODO
 - caddy: serve 404
 - server: reboot (docker + swap)
 - README: how to add swap on reboot
