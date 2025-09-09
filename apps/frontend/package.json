@@ -3,8 +3,7 @@
   "name": "@this/frontend",
   "scripts": {
     "serve": "vite",
-    "preview": "vite preview",
-    "build": "NODE_ENV='production' node build.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@unhead/vue": "2.0.14",

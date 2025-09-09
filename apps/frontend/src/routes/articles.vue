@@ -22,8 +22,7 @@
             heading
         />
 
-        <s-cols
-            v-bind="articles"
+        <s-articles
             :value="DATA.articles"
         />
 
@@ -39,6 +38,5 @@
 <script setup>
 
     import DATA from 'db:Articles'
-    import { articles } from '~/config/sections.js'
 
 </script>

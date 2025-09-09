@@ -196,8 +196,8 @@
 
         <div class="s-hero_text" v-for="(slide, i) in slides" :class="{ _active: i === active }">
             <ic-logo v-if="slide.logo" />
-            <component :is="heading ? 'h1' : 'p'" :style="{ fontWeight: slide.logo ? 600 : 900 }">{{ slide.title }}</component>
             <span v-if="slide.note">{{ slide.note }}</span>
+            <component :is="heading ? 'h1' : 'p'" :style="{ fontWeight: slide.logo ? 600 : 900 }">{{ slide.title }}</component>
         </div>
 
         <button class="s-hero_btn _prev" v-if="controls" @click="move(-1)">
@@ -223,7 +223,7 @@
 
 <script setup>
 
-    import { computed, ref, onMounted, onUnmounted } from 'vue'
+    import { computed, ref } from 'vue'
     import UiImage from "../ui/ui-image.vue";
 
     const props = defineProps({

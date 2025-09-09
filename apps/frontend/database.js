@@ -13,6 +13,7 @@ function getArticles (...columns) {
         .innerJoin('Articles', 'Articles.name', 'articles.page')
         .orderBy('articles.created_at', 'desc')
         .select(knex.raw(`"Articles".path || '/' || articles.slug AS path`))
+        .select(knex.raw(`to_char(articles.created_at, 'DD Mon YYYY') AS date`))
         .select(columns.map(column => `articles.${column}`))
 }
 

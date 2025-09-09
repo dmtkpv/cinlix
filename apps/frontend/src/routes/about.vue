@@ -43,11 +43,9 @@
             :value="DATA.services"
         />
 
-        <s-cols
-            v-bind="articles"
+        <s-articles
             :title="PAGES.Articles.title"
             :value="DATA.articles"
-            class="fABlRU"
         />
 
     </main>

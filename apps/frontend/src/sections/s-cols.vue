@@ -106,8 +106,6 @@
 <script setup>
 
     import { computed } from 'vue'
-    import LSection from "../layout/l-section.vue";
-    import UiImage from "../ui/ui-image.vue";
 
     const props = defineProps({
         columns: Number,
