@@ -42,6 +42,9 @@
       }
     ]
   },
+  "imports": {
+    "#root/*": "./*"
+  },
   "exports": {
     "./database": "./knexfile.js"
   }

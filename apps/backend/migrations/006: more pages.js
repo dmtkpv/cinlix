@@ -1,4 +1,4 @@
-import { FILES } from '../constants.js'
+import { image } from './utils/seeds.js'
 
 
 
@@ -9,31 +9,31 @@ import { FILES } from '../constants.js'
 const Quote =  {
     title: 'Get a Quote',
     path: '/quote',
-    image: FILES.image,
+    image
 }
 
 const Team =  {
     title: 'Team',
     path: '/team',
-    image: FILES.image,
+    image
 }
 
 const Work =  {
     title: 'Our work',
     path: '/work',
-    image: FILES.image,
+    image
 }
 
 const Privacy =  {
     title: 'Privacy',
     path: '/privacy',
-    image: FILES.image,
+    image
 }
 
 const Partners =  {
     title: 'Our partners',
     path: '/partners',
-    image: FILES.image,
+    image
 }
 
 
