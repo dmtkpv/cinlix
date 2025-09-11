@@ -18,7 +18,12 @@ export default {
     devtools: { enabled: false },
 
     srcDir: 'client/',
-    // pages: false,
+
+    runtimeConfig: {
+        public: {
+            BACKEND_URL,
+        },
+    },
 
     devServer: {
         port: FRONTEND_PORT,

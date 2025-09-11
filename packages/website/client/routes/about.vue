@@ -24,13 +24,13 @@
         <s-hero :value="DATA.slides" />
 
         <s-cols
-            v-bind="why"
+            v-bind="SECTION_WHY"
             title="Why Us"
             :value="DATA.why"
         />
 
         <s-cols
-            v-bind="how"
+            v-bind="SECTION_HOW"
             title="How we work"
             :value="DATA.how"
         />
@@ -38,7 +38,7 @@
         <s-cta />
 
         <s-cols
-            v-bind="services"
+            v-bind="SECTION_SERVICES"
             title="What we can do"
             :value="DATA.services"
         />
@@ -59,8 +59,9 @@
 
 <script setup>
 
-    import PAGES from 'db:pages'
-    import DATA from 'db:About'
-    import { why, how, services, articles } from '~/config/sections.js'
+    const PAGES = await useFetchData('/api/pages');
+    const DATA = await useFetchData('/api/about');
+
+    console.log(DATA)
 
 </script>

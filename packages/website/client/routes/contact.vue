@@ -46,7 +46,7 @@
             <l-contacts />
             <ui-form
                 button="Submit"
-                :form="form"
+                :form="FORM_CONTACT"
                 :value="edits"
                 @submit="submit"
             />
@@ -63,18 +63,11 @@
 
 <script setup>
 
-    import DATA from 'db:Contact'
-    import { reactive } from 'vue'
-    import { contact as form } from '~/config/forms.js'
-    import UiForm from "../ui/ui-form.vue";
-
-
+    const DATA = await useFetchData('/api/contact');
     const edits = reactive({})
 
     function submit () {
         console.log(edits)
     }
-
-
 
 </script>

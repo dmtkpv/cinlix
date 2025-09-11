@@ -37,10 +37,6 @@
 
 <script setup>
 
-    import MAP from 'db:map-articles'
-    import { usePreload } from '~/services/uses.js'
-    import { date } from '~/services/utils.js'
-
 
 
     // -------------------

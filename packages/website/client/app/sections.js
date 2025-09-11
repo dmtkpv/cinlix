@@ -1,6 +1,6 @@
 import styles from '~/styles/abstract.module.scss'
 
-export const why = {
+export const SECTION_WHY = {
     columns: 3,
     maxWidth: 320,
     image: {
@@ -8,7 +8,7 @@ export const why = {
     },
 }
 
-export const how = {
+export const SECTION_HOW = {
     columns: 4,
     bg: styles.grayLight,
     modifiers: ['center'],
@@ -19,7 +19,7 @@ export const how = {
     }
 }
 
-export const services = {
+export const SECTION_SERVICES = {
     columns: 2,
     modifiers: ['center', 'service'],
     image: {
@@ -27,11 +27,4 @@ export const services = {
         size: 80,
         bg: 'none'
     }
-}
-
-export const articles = {
-    columns: 3,
-    image: {
-        ratio: 3 / 2
-    },
 }

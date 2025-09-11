@@ -91,7 +91,7 @@
 
 <script setup>
 
-    import CONTACT from 'db:Contact'
+    const CONTACT = await useFetchData('/api/contact');
 
     const addresses = [
         { text: 'Cinlix' },

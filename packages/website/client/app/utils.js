@@ -1,5 +1,5 @@
-export async function useFetchData () {
-    const { data } = await useFetch(`/api/pages`);
+export async function useFetchData (url) {
+    const { data } = await useFetch(url);
     return data.value;
 }
 

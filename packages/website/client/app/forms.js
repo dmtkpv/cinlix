@@ -1,6 +1,6 @@
 import { required, email } from './validations.js'
 
-export const contact = {
+export const FORM_CONTACT = {
 
     name: {
         label: 'Name',

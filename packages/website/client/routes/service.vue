@@ -37,9 +37,6 @@
 
 <script setup>
 
-    import MAP from 'db:map-services'
-    import { usePreload } from '~/services/uses.js'
-
 
 
     // -------------------

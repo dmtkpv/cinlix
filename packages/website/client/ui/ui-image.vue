@@ -45,8 +45,6 @@
 
 <script setup>
 
-    import { computed, ref, onMounted } from 'vue'
-
     const props = defineProps({
         value: String,
         bg: String,
@@ -58,9 +56,10 @@
 
     const _loaded = ref(false);
     const $img = ref(null);
+    const config = useRuntimeConfig()
 
     const src = computed(() => {
-        return `${BACKEND_URL}/assets/${props.value}?width=${props.width}`
+        return `${config.public.BACKEND_URL}/assets/${props.value}?width=${props.width}`
     })
 
     onMounted(() => {

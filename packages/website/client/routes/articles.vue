@@ -37,6 +37,6 @@
 
 <script setup>
 
-    import DATA from 'db:Articles'
+    const DATA = await useFetchData('/api/articles');
 
 </script>
