@@ -16,9 +16,19 @@ export default {
                 component: () => import('~/routes/contact.vue')
             },
             {
-                name: 'Service',
-                path: `${PAGES.Services.path}/:slug`,
-                component: () => import('~/routes/service.vue')
+                path: PAGES.Services.path,
+                component: () => import('~/routes/services.vue'),
+                children: [
+                    {
+                        path: '',
+                        component: () => import('~/routes/error.vue')
+                    },
+                    {
+                        name: 'Service',
+                        path: ':slug',
+                        component: () => import('~/routes/service.vue')
+                    }
+                ],
             },
             {
                 name: 'Articles',
@@ -34,10 +44,6 @@ export default {
 
             // missing
 
-            {
-                path: PAGES.Services.path,
-                component: () => import('~/routes/error.vue')
-            },
             {
                 name: 'Quote',
                 path: PAGES.Quote.path,
