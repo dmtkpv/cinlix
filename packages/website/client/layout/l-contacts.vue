@@ -107,10 +107,11 @@
     ]
 
     const social = [
-        { url: CONTACT.twitter, icon: 'ri:twitter-fill' },
+        { url: CONTACT.twitter, icon: 'ri:twitter-x-fill' },
         { url: CONTACT.facebook, icon: 'ri:facebook-fill' },
         { url: CONTACT.linkedin, icon: 'ri:linkedin-fill' },
         { url: CONTACT.instagram, icon: 'ri:instagram-fill' },
+        { url: CONTACT.youtube, icon: 'ri:youtube-fill' },
     ]
 
 </script>
