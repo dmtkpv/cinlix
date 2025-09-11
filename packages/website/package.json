@@ -5,7 +5,7 @@
     "serve": "nuxt dev",
     "generate": "nuxt generate",
     "analyze": "nuxt analyze",
-    "preview": "serve .output/public -p $FRONTEND_PORT"
+    "preview": "serve dist/output/public -p $FRONTEND_PORT"
   },
   "dependencies": {
     "@this/database": "workspace:*",

@@ -207,6 +207,7 @@
     const nav = [
         { title: PAGES.About.title, path: PAGES.About.path },
         { title: PAGES.Services.title, path: PAGES.Services.path, children: PAGES.services },
+        { title: PAGES.Quote.title, path: PAGES.Quote.path },
         { title: PAGES.Articles.title, path: PAGES.Articles.path },
         { title: PAGES.Contact.title, path: PAGES.Contact.path },
     ]
