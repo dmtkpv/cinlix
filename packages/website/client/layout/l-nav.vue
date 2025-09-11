@@ -156,7 +156,7 @@
 
         <nuxt-link class="l-nav_link" :to="path" @mouseenter="enter" @click.native.capture="click">
             <span>{{ title }}</span>
-            <icon name="ri:arrow-down-s-fill" v-if="children" />
+            <icon name="local:dropdown" v-if="children" />
         </nuxt-link>
 
         <div class="l-nav_blackout" />

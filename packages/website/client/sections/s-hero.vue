@@ -123,24 +123,28 @@
 
             position: absolute;
             z-index: 2;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 0;
+            width: 80px;
+            height: 100%;
             color: $gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             @include hover {
                 color: $amber;
             }
 
             svg {
-                font-size: 32px;
+                font-size: 48px;
             }
 
             &._prev {
-                left: 24px;
+                left: 0;
             }
 
             &._next {
-                right: 24px;
+                right: 0;
             }
 
             @include sm {
