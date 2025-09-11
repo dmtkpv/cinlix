@@ -2,12 +2,13 @@
 .idea
 node_modules
 
-apps/backend/extensions
-apps/backend/uploads/*
-!apps/backend/uploads/default.png
+apps/directus/extensions
+apps/directus/uploads/*
+!apps/directus/uploads/default.png
 
 apps/frontend/dist
 
+apps/nuxt
 apps/nuxt/.nuxt
 apps/nuxt/.output
 apps/nuxt/node-compile-cache

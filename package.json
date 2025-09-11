@@ -1,7 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "backend": "CONFIG_PATH='config.js' pnpm --filter @this/backend",
+    "directus": "CONFIG_PATH='config.js' pnpm --filter @this/directus",
+    "database": "pnpm --filter @this/database",
     "frontend": "pnpm --filter @this/frontend",
     "nuxt": "pnpm --filter @this/nuxt"
   },

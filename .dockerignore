@@ -6,6 +6,6 @@
 !plugins/**
 
 **/node_modules
-apps/backend/extensions
-apps/backend/uploads
+apps/directus/extensions
+apps/directus/uploads
 apps/frontend/dist

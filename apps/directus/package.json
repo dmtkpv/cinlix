@@ -1,26 +1,20 @@
 {
   "type": "module",
-  "name": "@this/backend",
-  "version": "1.0.0",
+  "name": "@this/directus",
+  "version": "0.0.1",
   "scripts": {
     "bootstrap": "directus bootstrap",
     "serve": "directus start",
-    "seed": "knex seed:run",
-    "migrate:up": "knex migrate:up",
-    "migrate:down": "knex migrate:down",
-    "migrate:latest": "knex migrate:latest",
     "build": "directus-extension build",
     "watch": "directus-extension build -w --no-minify"
   },
   "dependencies": {
+    "@this/frontend": "workspace:*",
     "directus": "11.11.0",
-    "knex": "3.1.0",
-    "lodash-es": "4.17.21",
     "slugify": "1.6.6"
   },
   "devDependencies": {
-    "@directus/extensions-sdk": "16.0.1",
-    "@this/frontend": "workspace:*"
+    "@directus/extensions-sdk": "16.0.1"
   },
   "directus:extension": {
     "type": "bundle",
@@ -44,8 +38,5 @@
   },
   "imports": {
     "#root/*": "./*"
-  },
-  "exports": {
-    "./database": "./knexfile.js"
   }
 }

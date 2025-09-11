@@ -50,13 +50,13 @@ async function debounce () {
 export default ({ action }) => {
 
     if (NODE_ENV === 'development') return;
-
-    debounce();
-
-    collections.forEach(collection => {
-        action(`${collection}.items.create`, debounce);
-        action(`${collection}.items.update`, debounce);
-        action(`${collection}.items.delete`, debounce);
-    })
+    //
+    // debounce();
+    //
+    // collections.forEach(collection => {
+    //     action(`${collection}.items.create`, debounce);
+    //     action(`${collection}.items.update`, debounce);
+    //     action(`${collection}.items.delete`, debounce);
+    // })
 
 };
