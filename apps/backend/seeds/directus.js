@@ -1,6 +1,8 @@
-import Fields from '../settings/fields.js'
-import Relations from '../settings/relations.js'
-import Collections from '../settings/collections.js'
+import Fields from '#root/settings/fields.js'
+import Relations from '#root/settings/relations.js'
+import Collections from '#root/settings/collections.js'
+import Policies from '#root/settings/policies.js'
+import Files from '#root/settings/files.js'
 
 export async function seed (knex) {
 
@@ -92,6 +94,24 @@ export async function seed (knex) {
     if (Relations.length) {
         await knex('directus_relations').del();
         await knex('directus_relations').insert(Relations);
+    }
+
+    if (Files.length) {
+        await knex('directus_files').insert(Files).onConflict('id').merge();
+    }
+
+
+
+    // -------------------
+    // Policies
+    // -------------------
+
+    for (const { id, role, name, permissions, ...policy } of Policies) {
+        if (role) await knex('directus_roles').insert({ id: role, name }).onConflict('id').merge();
+        await knex('directus_policies').insert({ id, name, ...policy }).onConflict('id').merge();
+        await knex('directus_access').insert({ id, role, policy: id }).onConflict('id').merge();
+        await knex('directus_permissions').where('policy', id).del();
+        if (permissions) await knex('directus_permissions').insert(permissions.map(p => ({ policy: id, ...p })));
     }
 
 
