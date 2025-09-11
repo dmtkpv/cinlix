@@ -15,10 +15,6 @@ export default {
                 path: PAGES.Contact.path,
                 component: () => import('~/routes/contact.vue')
             },
-            // {
-            //     path: PAGES.Services.path,
-            //     component: () => import('~/routes/contact.vue')
-            // },
             {
                 name: 'Service',
                 path: `${PAGES.Services.path}/:slug`,
@@ -34,6 +30,35 @@ export default {
                 path: `${PAGES.Articles.path}/:slug`,
                 component: () => import('~/routes/article.vue')
             },
+
+
+            // missing
+
+            {
+                path: PAGES.Services.path,
+                component: () => import('~/routes/error.vue')
+            },
+            {
+                name: 'Quote',
+                path: PAGES.Quote.path,
+                component: () => import('~/routes/error.vue')
+            },
+            {
+                name: 'Team',
+                path: PAGES.Team.path,
+                component: () => import('~/routes/error.vue')
+            },
+            {
+                name: 'Work',
+                path: PAGES.Work.path,
+                component: () => import('~/routes/error.vue')
+            },
+            {
+                name: 'Privacy',
+                path: PAGES.Privacy.path,
+                component: () => import('~/routes/error.vue')
+            },
+
 
 
 

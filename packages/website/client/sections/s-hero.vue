@@ -78,7 +78,7 @@
             justify-items: center;
 
             svg {
-                height: 96px;
+                font-size: 96px;
                 margin-bottom: 24px;
             }
 
@@ -132,7 +132,7 @@
             }
 
             svg {
-                width: 32px;
+                font-size: 32px;
             }
 
             &._prev {
@@ -195,17 +195,17 @@
         </div>
 
         <div class="s-hero_text" v-for="(slide, i) in slides" :class="{ _active: i === active }">
-            <ic-logo v-if="slide.logo" />
+            <icon name="local:logo" v-if="slide.logo" />
             <span v-if="slide.note">{{ slide.note }}</span>
             <component :is="heading ? 'h1' : 'p'" :style="{ fontWeight: slide.logo ? 600 : 900 }">{{ slide.title }}</component>
         </div>
 
         <button class="s-hero_btn _prev" v-if="controls" @click="move(-1)">
-            <ic-left />
+            <icon name="ri:arrow-left-s-line" />
         </button>
 
         <button class="s-hero_btn _next" v-if="controls" @click="move(1)">
-            <ic-right />
+            <icon name="ri:arrow-right-s-line" />
         </button>
 
         <div class="s-hero_nav" v-if="controls">
