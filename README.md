@@ -1,6 +1,11 @@
 icons  
 https://icon-sets.iconify.design/ri/
 
+pnpm directus bootstrap
+pnpm directus build (watch)
+pnpm database migrate:latest (up, down)
+pnpm database seed
+
 
 ## TODO
 - caddy: serve 404

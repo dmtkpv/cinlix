@@ -2,12 +2,10 @@
 .idea
 node_modules
 
-apps/directus/extensions
-apps/directus/uploads/*
-!apps/directus/uploads/default.png
+packages/directus/extensions
+packages/directus/uploads/*
+!packages/directus/uploads/default.png
 
-apps/frontend/dist
-
-apps/nuxt/.nuxt
-apps/nuxt/.output
-apps/nuxt/node-compile-cache
+packages/website/.nuxt
+packages/website/.output
+packages/website/node-compile-cache

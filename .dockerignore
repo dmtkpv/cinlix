@@ -2,10 +2,9 @@
 
 !package.json
 !pnpm-workspace.yaml
-!apps/**
-!plugins/**
+!packages/**
 
 **/node_modules
-apps/directus/extensions
-apps/directus/uploads
-apps/frontend/dist
+
+packages/directus/extensions
+packages/directus/uploads

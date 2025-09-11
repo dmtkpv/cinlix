@@ -1,0 +1,74 @@
+// -----------------
+// Vars
+// -----------------
+
+:root {
+
+    @include lg {
+        --header: 96px;
+    }
+
+    @include md-sm {
+        --header: 72px;
+    }
+
+}
+
+
+
+// -----------------
+// Reset
+// -----------------
+
+*,
+*:before,
+*:before {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    color: $black-light;
+    background: $white;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+svg {
+    display: block;
+    fill: currentColor;
+}
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+p {
+    margin: 0;
+}
+main {
+    padding-top: $header;
+}
+img {
+   display: block;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+}
+label {
+    display: block;
+}
+input, button, textarea {
+    display: block;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+}
