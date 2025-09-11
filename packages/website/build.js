@@ -1,6 +1,5 @@
 import { fileURLToPath } from 'url'
 import { loadNuxt, buildNuxt } from '@nuxt/kit'
-import { knex } from '@this/database'
 
 export default async function runGenerate() {
 
@@ -17,6 +16,5 @@ export default async function runGenerate() {
     })
 
     await buildNuxt(nuxt);
-    await knex.destroy();
 
 }

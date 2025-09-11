@@ -52,8 +52,8 @@ services:
       - ${BACKEND_PORT}:${BACKEND_PORT}
     volumes:
       - pnpm_store:${PNPM_DIR}
-      - ./apps/backend/uploads:/app/apps/backend/uploads
-      - ./apps/frontend/dist:/app/apps/frontend/dist
+      - ./packages/directus/uploads:/app/packages/directus/uploads
+      - ./packages/website/dist:/app/packages/website/dist
     env_file:
       - .env
     depends_on:
@@ -71,10 +71,10 @@ services:
   caddy:
     image: caddy:2-alpine
     ports:
-      - "80:80"
+      - 8080:80
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./apps/frontend/dist:/www
+      - ./packages/website/dist:/www
 
 
 

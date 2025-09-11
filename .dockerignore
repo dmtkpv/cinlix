@@ -1,10 +1,20 @@
 **
-
 !package.json
 !pnpm-workspace.yaml
-!packages/**
 
-**/node_modules
+# database
+!packages/database
 
+# directus
+!packages/directus
 packages/directus/extensions
 packages/directus/uploads
+
+# website
+!packages/website/*.js
+!packages/website/*.json
+!packages/website/client/**
+!packages/website/server/**
+
+# ignore dirs
+**/node_modules

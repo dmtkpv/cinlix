@@ -26,11 +26,11 @@ FROM base AS prod
 
 COPY . .
 RUN pnpm install
-RUN pnpm backend build
+RUN pnpm directus build
 
 CMD ["sh", "-c", "\
-    pnpm backend bootstrap && \
-    pnpm backend migrate:latest && \
-    pnpm backend seed && \
-    pnpm backend serve \
+    pnpm directus bootstrap && \
+    pnpm database migrate:latest && \
+    pnpm database seed && \
+    pnpm directus serve \
 "]

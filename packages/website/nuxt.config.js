@@ -22,7 +22,13 @@ export default {
     runtimeConfig: {
         public: {
             BACKEND_URL,
-        },
+        }
+    },
+
+    nitro: {
+        output: {
+            dir: 'dist/output'
+        }
     },
 
     devServer: {

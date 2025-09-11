@@ -1,6 +1,6 @@
 :80 {
 
-    root * /www
+    root * /www/output/public
     encode gzip
 
     @static {

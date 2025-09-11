@@ -7,6 +7,5 @@ packages/directus/uploads/*
 !packages/directus/uploads/default.png
 
 packages/website/.nuxt
-packages/website/.output
 packages/website/node-compile-cache
 packages/website/dist
