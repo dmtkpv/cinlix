@@ -1,18 +1,18 @@
-import { knex } from '@this/backend/database'
-
-export function getServices (...columns) {
-    return knex('services')
-        .innerJoin('Services', 'Services.name', 'services.page')
-        .orderBy('services.sort')
-        .select(knex.raw(`"Services".path || '/' || services.slug AS path`))
-        .select(columns.map(column => `services.${column}`))
+export function keyBy (arr, key) {
+    return arr.reduce((acc, item) => {
+        acc[item[key]] = item;
+        return acc;
+    }, {});
 }
 
-export function getArticles (...columns) {
-    return knex('articles')
-        .innerJoin('Articles', 'Articles.name', 'articles.page')
-        .orderBy('articles.created_at', 'desc')
-        .select(knex.raw(`"Articles".path || '/' || articles.slug AS path`))
-        .select(knex.raw(`to_char(articles.created_at, 'DD Mon YYYY') AS date`))
-        .select(columns.map(column => `articles.${column}`))
+export function promise (object) {
+    const keys = Object.keys(object);
+    const values = Object.values(object);
+    return Promise.all(values).then(data => {
+        return data.reduce((acc, item, index) => {
+            acc[keys[index]] = item;
+            return acc;
+        }, {})
+    });
+
 }

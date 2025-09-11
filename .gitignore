@@ -8,7 +8,6 @@ apps/directus/uploads/*
 
 apps/frontend/dist
 
-apps/nuxt
 apps/nuxt/.nuxt
 apps/nuxt/.output
 apps/nuxt/node-compile-cache
