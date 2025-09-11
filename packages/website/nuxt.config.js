@@ -35,8 +35,16 @@ export default {
     },
 
     modules: [
+        '@nuxtjs/google-fonts',
         '@nuxt/icon'
     ],
+
+    googleFonts: {
+        subsets: 'latin',
+        families: {
+            Inter: '400..900',
+        }
+    },
 
     icon: {
         mode: 'svg',
