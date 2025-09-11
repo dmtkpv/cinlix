@@ -56,7 +56,7 @@
 
 <template>
     <l-section class="fABlRU" container-class="s-articles" full>
-        <router-link v-for="item in value" :to="item.path">
+        <nuxt-link v-for="item in value" :to="item.path">
 
             <ui-image :value="item.image" bg="none" />
 
@@ -65,7 +65,7 @@
                 <h3>{{ item.title }}</h3>
             </div>
 
-        </router-link>
+        </nuxt-link>
     </l-section>
 </template>
 

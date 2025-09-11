@@ -62,6 +62,4 @@
     const PAGES = await useFetchData('/api/pages');
     const DATA = await useFetchData('/api/about');
 
-    console.log(DATA)
-
 </script>

@@ -227,9 +227,6 @@
 
 <script setup>
 
-    import { computed, ref } from 'vue'
-    import UiImage from "../ui/ui-image.vue";
-
     const props = defineProps({
         value: [Object, Array],
         heading: Boolean,
@@ -260,7 +257,5 @@
     function enable () {
         disabled.value = false
     }
-
-
 
 </script>

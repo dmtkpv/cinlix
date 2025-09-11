@@ -105,8 +105,6 @@
 
 <script setup>
 
-    import { computed } from 'vue'
-
     const props = defineProps({
         columns: Number,
         bg: String,

@@ -110,7 +110,7 @@
             <!-- nav -->
 
             <nav v-for="nav in navs" class="l-footer_nav">
-                <router-link v-for="item in nav" :to="item.path">{{ item.title }}</router-link>
+                <nuxt-link v-for="item in nav" :to="item.path">{{ item.title }}</nuxt-link>
             </nav>
 
 

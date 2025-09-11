@@ -1,10 +1,11 @@
 import { required, email } from './validations.js'
+import { IInput, IText } from '#components'
 
 export const FORM_CONTACT = {
 
     name: {
         label: 'Name',
-        component: 'i-input',
+        component: IInput,
         options: {
             type: 'text',
         },
@@ -15,7 +16,7 @@ export const FORM_CONTACT = {
 
     email: {
         label: 'Email',
-        component: 'i-input',
+        component: IInput,
         options: {
             type: 'text',
         },
@@ -27,7 +28,7 @@ export const FORM_CONTACT = {
 
     message: {
         label: 'Message',
-        component: 'i-text',
+        component: IText,
         validations: [
             required,
         ]

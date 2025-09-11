@@ -163,10 +163,10 @@
 
             <!-- logo -->
 
-            <router-link to="/" class="l-header_logo">
+            <nuxt-link to="/" class="l-header_logo">
                 <icon name="local:logo" />
                 <p>Crafting Visual Stories</p>
-            </router-link>
+            </nuxt-link>
 
 
             <!-- menu -->

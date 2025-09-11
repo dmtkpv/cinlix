@@ -79,8 +79,5 @@
 
 <script setup>
 
-    defineProps({
-        value: Array
-    })
 
 </script>

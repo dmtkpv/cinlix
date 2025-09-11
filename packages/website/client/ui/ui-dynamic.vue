@@ -4,9 +4,9 @@
 
 <template>
 
-    <router-link v-if="props.to" :to="to">
+    <nuxt-link v-if="props.to" :to="to">
         <slot />
-    </router-link>
+    </nuxt-link>
 
     <a v-else-if="props.href" :href="props.href">
         <slot />
@@ -29,8 +29,6 @@
 -->
 
 <script setup>
-
-    import { useAttrs } from 'vue'
 
     const props = defineProps({
         to: Object,

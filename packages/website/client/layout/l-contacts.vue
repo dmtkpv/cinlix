@@ -26,7 +26,7 @@
             }
 
             svg {
-                height: 16px;
+                font-size: 16px;
             }
 
         }
@@ -47,7 +47,7 @@
             }
 
             svg {
-                height: 24px;
+                font-size: 24px;
             }
 
         }
@@ -69,14 +69,14 @@
 
         <div class="l-contacts_address">
             <p v-for="address in addresses">
-                <component v-if="address.icon" :is="address.icon" />
+                <icon v-if="address.icon" :name="address.icon" />
                 {{ address.text }}
             </p>
         </div>
 
         <div class="l-contacts_social">
             <a v-for="item in social" :href="item.url" target="_blank">
-                <component :is="item.icon" />
+                <icon :name="item.icon" />
             </a>
         </div>
 
@@ -97,15 +97,15 @@
         { text: 'Cinlix' },
         { text: CONTACT.street },
         { text: `${CONTACT.city}, ${CONTACT.state} ${CONTACT.zip}` },
-        { text: CONTACT.phone, icon: 'ic-phone', },
-        { text: CONTACT.email, icon: 'ic-mail' },
+        { text: CONTACT.phone, icon: 'ri:phone-fill', },
+        { text: CONTACT.email, icon: 'ri:mail-fill' },
     ]
 
     const social = [
-        { url: CONTACT.twitter, icon: 'ic-twitter' },
-        { url: CONTACT.facebook, icon: 'ic-facebook' },
-        { url: CONTACT.linkedin, icon: 'ic-linkedin' },
-        { url: CONTACT.instagram, icon: 'ic-instagram' },
+        { url: CONTACT.twitter, icon: 'ri:twitter-fill' },
+        { url: CONTACT.facebook, icon: 'ri:facebook-fill' },
+        { url: CONTACT.linkedin, icon: 'ri:linkedin-fill' },
+        { url: CONTACT.instagram, icon: 'ri:instagram-fill' },
     ]
 
 </script>
