@@ -1,10 +1,13 @@
+import { fileURLToPath } from 'url'
 import { loadNuxt, buildNuxt } from '@nuxt/kit'
 import { knex } from '@this/database'
 
 export default async function runGenerate() {
 
+    const root = fileURLToPath(new URL('.', import.meta.url))
+
     const nuxt = await loadNuxt({
-        cwd: process.cwd(),
+        cwd: root,
         dev: false,
         overrides: {
             nitro: {

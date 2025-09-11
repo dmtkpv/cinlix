@@ -9,7 +9,7 @@
     "watch": "directus-extension build -w --no-minify"
   },
   "dependencies": {
-    "@this/frontend": "workspace:*",
+    "@this/website": "workspace:*",
     "directus": "11.11.0",
     "slugify": "1.6.6"
   },

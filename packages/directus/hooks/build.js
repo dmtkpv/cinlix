@@ -1,4 +1,4 @@
-// import build from '@this/frontend/build'
+import build from '@this/website/build'
 
 
 
@@ -50,13 +50,13 @@ async function debounce () {
 export default ({ action }) => {
 
     if (NODE_ENV === 'development') return;
-    //
-    // debounce();
-    //
-    // collections.forEach(collection => {
-    //     action(`${collection}.items.create`, debounce);
-    //     action(`${collection}.items.update`, debounce);
-    //     action(`${collection}.items.delete`, debounce);
-    // })
+
+    collections.forEach(collection => {
+        action(`${collection}.items.create`, debounce);
+        action(`${collection}.items.update`, debounce);
+        action(`${collection}.items.delete`, debounce);
+    })
+
+    action('server.start', debounce);
 
 };

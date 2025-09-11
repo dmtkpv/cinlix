@@ -64,6 +64,14 @@ export default {
                 path: PAGES.Privacy.path,
                 component: () => import('~/routes/error.vue')
             },
+            {
+                path: '/404',
+                component: () => import('~/routes/error.vue')
+            },
+            {
+                path: '/:pathMatch(.*)*',
+                component: () => import('~/routes/error.vue')
+            },
 
 
 
