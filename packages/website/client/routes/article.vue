@@ -18,7 +18,7 @@
     <main>
 
         <s-hero
-            :value="{ title: DATA.title, image: DATA.image, note: date(DATA.created_at) }"
+            :value="{ title: DATA.title, image: DATA.image, note: DATA.date }"
             heading
         />
 
@@ -37,26 +37,7 @@
 
 <script setup>
 
-
-
-    // -------------------
-    // Options
-    // -------------------
-
-    defineOptions({
-        preload (to) {
-            return MAP[to.params.slug]();
-        }
-    })
-
-
-
-    // -------------------
-    // Options
-    // -------------------
-
-    const DATA = usePreload();
-
-
+    const route = useRoute();
+    const DATA = await useFetchData(`/api/articles/${route.params.slug}`);
 
 </script>

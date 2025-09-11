@@ -37,26 +37,7 @@
 
 <script setup>
 
-
-
-    // -------------------
-    // Options
-    // -------------------
-
-    defineOptions({
-        preload (to) {
-            return MAP[to.params.slug]();
-        }
-    })
-
-
-
-    // -------------------
-    // Options
-    // -------------------
-
-    const DATA = usePreload();
-
-
+    const route = useRoute();
+    const DATA = await useFetchData(`/api/services/${route.params.slug}`);
 
 </script>
