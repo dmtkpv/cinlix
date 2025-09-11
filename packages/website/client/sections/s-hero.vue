@@ -53,7 +53,7 @@
             }
 
             &._blur .ui-image {
-                filter: blur(20px);
+                filter: blur(10px);
             }
 
         }
@@ -235,6 +235,7 @@
 
     const active = ref(0);
     const disabled = ref(false);
+    let timeout;
 
     const slides = computed(() => {
         return Array.isArray(props.value) ? props.value : [props.value];
@@ -252,10 +253,18 @@
         if (i > props.value.length - 1) i = 0;
         active.value = i;
         disabled.value = true;
+        auto();
+    }
+
+    function auto () {
+        timeout && clearTimeout(timeout);
+        timeout = setTimeout(() => move(1), 4000);
     }
 
     function enable () {
         disabled.value = false
     }
+
+    onMounted(auto);
 
 </script>

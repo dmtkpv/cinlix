@@ -25,6 +25,11 @@
                 gap: 8px;
             }
 
+            p:first-child {
+                font-size: 20px;
+                font-weight: 800;
+            }
+
             svg {
                 font-size: 16px;
             }
@@ -68,6 +73,7 @@
     <div class="l-contacts">
 
         <div class="l-contacts_address">
+            <p>Cinlix</p>
             <p v-for="address in addresses">
                 <icon v-if="address.icon" :name="address.icon" />
                 {{ address.text }}
@@ -94,7 +100,6 @@
     const CONTACT = await useFetchData('/api/contact');
 
     const addresses = [
-        { text: 'Cinlix' },
         { text: CONTACT.street },
         { text: `${CONTACT.city}, ${CONTACT.state} ${CONTACT.zip}` },
         { text: CONTACT.phone, icon: 'ri:phone-fill', },

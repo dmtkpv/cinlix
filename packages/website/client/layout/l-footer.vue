@@ -143,7 +143,7 @@
     const PAGES = await useFetchData('/api/pages');
 
     const navs = [
-        [PAGES.About, PAGES.Quote, PAGES.Contact, PAGES.Team, PAGES.Work, PAGES.Privacy, PAGES.Articles],
+        [PAGES.About, PAGES.Quote, PAGES.Team, PAGES.Work, PAGES.Privacy, PAGES.Articles],
         [...PAGES.services]
     ]
 
