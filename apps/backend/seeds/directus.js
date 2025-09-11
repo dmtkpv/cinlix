@@ -2,7 +2,6 @@ import Fields from '#root/settings/fields.js'
 import Relations from '#root/settings/relations.js'
 import Collections from '#root/settings/collections.js'
 import Policies from '#root/settings/policies.js'
-import Files from '#root/settings/files.js'
 
 export async function seed (knex) {
 
@@ -94,10 +93,6 @@ export async function seed (knex) {
     if (Relations.length) {
         await knex('directus_relations').del();
         await knex('directus_relations').insert(Relations);
-    }
-
-    if (Files.length) {
-        await knex('directus_files').insert(Files).onConflict('id').merge();
     }
 
 
