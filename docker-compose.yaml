@@ -23,6 +23,7 @@ services:
     ports:
       - ${BACKEND_PORT}:${BACKEND_PORT}
       - ${FRONTEND_PORT}:${FRONTEND_PORT}
+      - 3000:3000 # analyze
     volumes:
       - pnpm_store:${PNPM_DIR}
       - ./:/app

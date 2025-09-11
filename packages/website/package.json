@@ -2,22 +2,26 @@
   "type": "module",
   "name": "@this/website",
   "scripts": {
-    "build": "nuxt build",
     "serve": "nuxt dev",
     "generate": "nuxt generate",
+    "analyze": "nuxt analyze",
     "preview": "serve .output/public -p $FRONTEND_PORT"
   },
   "dependencies": {
-    "@nuxt/icon": "2.0.0",
-    "@nuxtjs/google-fonts": "3.2.0",
     "@this/database": "workspace:*",
     "lodash-es": "4.17.21",
     "nuxt": "4.1.1",
-    "serve": "14.2.5",
     "vue": "3.5.21",
     "vue-router": "4.5.1"
   },
   "devDependencies": {
-    "sass": "1.91.0"
+    "@nuxt/icon": "2.0.0",
+    "@nuxt/kit": "4.1.1",
+    "@nuxtjs/google-fonts": "3.2.0",
+    "sass": "1.91.0",
+    "serve": "14.2.5"
+  },
+  "exports": {
+    "./build": "./build.js"
   }
 }

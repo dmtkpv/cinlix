@@ -9,3 +9,4 @@ packages/directus/uploads/*
 packages/website/.nuxt
 packages/website/.output
 packages/website/node-compile-cache
+packages/website/dist
