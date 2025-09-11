@@ -1,7 +1,7 @@
-import Fields from '#root/settings/fields.js'
-import Relations from '#root/settings/relations.js'
-import Collections from '#root/settings/collections.js'
-import Policies from '#root/settings/policies.js'
+import Fields from '#root/directus/fields.js'
+import Relations from '#root/directus/relations.js'
+import Collections from '#root/directus/collections.js'
+import Policies from '#root/directus/policies.js'
 
 export async function seed (knex) {
 

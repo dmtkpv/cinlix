@@ -33,7 +33,7 @@ const knex = new Knex(config);
 
 
 // ------------------
-// Extensions
+// TableBuilder
 // ------------------
 
 Knex.TableBuilder.extend('defaults', function () {
@@ -57,6 +57,15 @@ Knex.TableBuilder.extend('file', function (column) {
     return this.uuid(column).references('directus_files.id')
 });
 
+
+
+// ------------------
+// QueryBuilder
+// ------------------
+
+Knex.QueryBuilder.extend('selectRaw', function (sql, bindings) {
+    return this.select(this.client.raw(sql, bindings))
+});
 
 
 
