@@ -62,6 +62,10 @@ export default {
             required: true,
             width: 'half'
         }),
+        youtube: Fields.input({
+            required: true,
+            width: 'half'
+        }),
 
     },
 
