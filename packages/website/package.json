@@ -2,8 +2,8 @@
   "type": "module",
   "name": "@this/website",
   "scripts": {
-    "serve": "nuxt dev",
-    "generate": "nuxt generate",
+    "dev": "nuxt dev",
+    "build": "node build",
     "analyze": "nuxt analyze",
     "preview": "serve dist/output/public -p $FRONTEND_PORT"
   },
