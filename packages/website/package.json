@@ -4,8 +4,7 @@
   "scripts": {
     "dev": "nuxt dev",
     "build": "node build",
-    "analyze": "nuxt analyze",
-    "preview": "serve dist/output/public -p $FRONTEND_PORT"
+    "analyze": "nuxt analyze"
   },
   "dependencies": {
     "@this/database": "workspace:*",
@@ -18,8 +17,7 @@
     "@nuxt/icon": "2.0.0",
     "@nuxt/kit": "4.1.1",
     "@nuxtjs/google-fonts": "3.2.0",
-    "sass": "1.91.0",
-    "serve": "14.2.5"
+    "sass": "1.91.0"
   },
   "exports": {
     "./build": "./build.js"

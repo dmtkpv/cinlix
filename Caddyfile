@@ -5,7 +5,7 @@
 
     @static {
         file
-        path *.css *.js
+        path *.css *.js *.woff2
     }
     header @static Cache-Control max-age=5184000
 

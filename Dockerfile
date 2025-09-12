@@ -24,8 +24,13 @@ WORKDIR ${WORK_DIR}
 
 FROM base AS prod
 
-COPY . .
+COPY package.json pnpm-*.yaml ./
+COPY packages/database/package.json ./packages/database/
+COPY packages/directus/package.json ./packages/directus/
+COPY packages/website/package.json ./packages/website/
 RUN pnpm install
+
+COPY . .
 RUN pnpm directus build
 
 CMD ["sh", "-c", "\

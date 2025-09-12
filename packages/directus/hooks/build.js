@@ -29,7 +29,7 @@ function debounce () {
     const start = Date.now();
     console.log('BUILD START')
 
-    exec('pnpm --filter @this/website generate', (err, stdout, stderr) => {
+    exec('pnpm --filter @this/website build', (err, stdout, stderr) => {
         console.log('BUILD END:', Date.now() - start)
         if (err) console.log('BUILD ERROR:', err);
         building = false;
@@ -45,8 +45,6 @@ function debounce () {
 // ------------------
 
 export default ({ action }) => {
-
-    if (NODE_ENV === 'development') return;
 
     collections.forEach(collection => {
         action(`${collection}.items.create`, debounce);

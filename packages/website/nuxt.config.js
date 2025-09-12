@@ -27,7 +27,7 @@ export default {
 
     nitro: {
         output: {
-            dir: 'dist/output'
+            dir: 'caddy/output'
         }
     },
 
