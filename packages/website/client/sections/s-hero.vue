@@ -267,4 +267,8 @@
 
     onMounted(auto);
 
+    onUnmounted(() => {
+        timeout && clearTimeout(timeout)
+    })
+
 </script>
