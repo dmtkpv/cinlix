@@ -1,3 +1,5 @@
+import Error from '~/routes/error.vue';
+
 export default {
 
     async routes () {
@@ -6,9 +8,14 @@ export default {
 
         return [
             {
+                name: 'Home',
+                path: PAGES.Home.path,
+                component: () => import('~/routes/home.vue')
+            },
+            {
                 name: 'About',
                 path: PAGES.About.path,
-                component: () => import('~/routes/about.vue')
+                component: Error
             },
             {
                 name: 'Contact',
@@ -21,7 +28,7 @@ export default {
                 children: [
                     {
                         path: '',
-                        component: () => import('~/routes/error.vue')
+                        component: Error
                     },
                     {
                         name: 'Service',
@@ -47,30 +54,30 @@ export default {
             {
                 name: 'Quote',
                 path: PAGES.Quote.path,
-                component: () => import('~/routes/error.vue')
+                component: Error
             },
             {
                 name: 'Team',
                 path: PAGES.Team.path,
-                component: () => import('~/routes/error.vue')
+                component: Error
             },
             {
                 name: 'Work',
                 path: PAGES.Work.path,
-                component: () => import('~/routes/error.vue')
+                component: Error
             },
             {
                 name: 'Privacy',
                 path: PAGES.Privacy.path,
-                component: () => import('~/routes/error.vue')
+                component: Error
             },
             {
                 path: '/404',
-                component: () => import('~/routes/error.vue')
+                component: Error
             },
             {
                 path: '/:pathMatch(.*)*',
-                component: () => import('~/routes/error.vue')
+                component: Error
             },
 
 

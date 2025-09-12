@@ -9,6 +9,8 @@ export default {
     v_pages: {
         type: '',
         definition: `
+            SELECT name, path, title FROM "Home"
+            UNION
             SELECT name, path, title FROM "About"
             UNION
             SELECT name, path, title FROM "Articles"

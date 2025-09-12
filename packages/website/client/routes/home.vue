@@ -19,7 +19,7 @@
 <template>
     <main>
 
-        <h1 class="sr-only">{{ PAGES.About.title }}</h1>
+        <h1 class="sr-only">{{ PAGES.Home.title }}</h1>
 
         <s-hero :value="DATA.slides" />
 
@@ -60,6 +60,6 @@
 <script setup>
 
     const PAGES = await useFetchData('/api/pages');
-    const DATA = await useFetchData('/api/about');
+    const DATA = await useFetchData('/api/home');
 
 </script>

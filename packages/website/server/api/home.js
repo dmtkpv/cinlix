@@ -3,7 +3,7 @@ import { promise } from '~~/server/utils'
 
 export default defineEventHandler(async (event) => {
 
-    const slides = knex('about_slides')
+    const slides = knex('home_slides')
         .orderBy('sort')
         .select([
             'id',
@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
             'blur'
         ])
 
-    const why = knex('about_whys')
+    const why = knex('home_whys')
         .orderBy('sort')
         .select([
             'id',
@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
             'description'
         ])
 
-    const how = knex('about_hows')
+    const how = knex('home_hows')
         .orderBy('sort')
         .select([
             'id',
