@@ -3,7 +3,7 @@ import Fields from '../../fields.js'
 export default {
 
     options: {
-        collection: 'about_hows',
+        collection: 'home_whys',
         sort_field: 'sort',
         hidden: true
     },

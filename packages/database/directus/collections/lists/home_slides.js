@@ -3,7 +3,7 @@ import Fields from '../../fields.js'
 export default {
 
     options: {
-        collection: 'about_slides',
+        collection: 'home_slides',
         sort_field: 'sort',
         hidden: true
     },

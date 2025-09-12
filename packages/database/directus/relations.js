@@ -11,9 +11,9 @@ const m2m = []
 // -------------------
 
 const o2m = [
-    ['About', 'slides', 'about_slides', 'page', null, 'sort', 'delete'],
-    ['About', 'why_us', 'about_whys', 'page', null, 'sort', 'delete'],
-    ['About', 'how_we_work', 'about_hows', 'page', null, 'sort', 'delete'],
+    ['Home', 'slides', 'home_slides', 'page', null, 'sort', 'delete'],
+    ['Home', 'why_us', 'home_whys', 'page', null, 'sort', 'delete'],
+    ['Home', 'how_we_work', 'home_hows', 'page', null, 'sort', 'delete'],
     ['Articles', 'articles', 'articles', 'page', null, null, 'delete'],
     ['Services', 'services', 'services', 'page', null, 'sort', 'delete'],
     ['services', 'sections', 'services_sections', 'service', null, 'sort', 'delete'],

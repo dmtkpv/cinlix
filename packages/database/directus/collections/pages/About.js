@@ -17,32 +17,10 @@ export default {
         }),
         path: Fields.input({
             required: true,
-            readonly: true,
             width: 'half'
         }),
-        slides: Fields.o2m({
+        image: Fields.image({
             required: true,
-            template: '{{ title }}',
-            options: {
-                enableSelect: false,
-                sort: 'sort'
-            }
-        }),
-        why_us: Fields.o2m({
-            required: true,
-            template: '{{ title }}',
-            options: {
-                enableSelect: false,
-                sort: 'sort'
-            }
-        }),
-        how_we_work: Fields.o2m({
-            required: true,
-            template: '{{ title }}',
-            options: {
-                enableSelect: false,
-                sort: 'sort'
-            }
         }),
     },
 

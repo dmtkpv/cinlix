@@ -1,6 +1,7 @@
 import About from './collections/pages/About.js'
 import Articles from './collections/pages/Articles.js'
 import Contact from './collections/pages/Contact.js'
+import Home from './collections/pages/Home.js'
 import Partners from './collections/pages/Partners.js'
 import Privacy from './collections/pages/Privacy.js'
 import Quote from './collections/pages/Quote.js'
@@ -8,10 +9,10 @@ import Services from './collections/pages/Services.js'
 import Team from './collections/pages/Team.js'
 import Work from './collections/pages/Work.js'
 
-import about_hows from './collections/lists/about_hows.js'
-import about_slides from './collections/lists/about_slides.js'
-import about_whys from './collections/lists/about_whys.js'
 import articles from './collections/lists/articles.js'
+import home_hows from './collections/lists/home_hows.js'
+import home_slides from './collections/lists/home_slides.js'
+import home_whys from './collections/lists/home_whys.js'
 import services from './collections/lists/services.js'
 import services_sections from './collections/lists/services_sections.js'
 
@@ -41,6 +42,7 @@ const pages = group('pages', [
     About,
     Articles,
     Contact,
+    Home,
     Partners,
     Privacy,
     Quote,
@@ -50,10 +52,10 @@ const pages = group('pages', [
 ])
 
 const lists = group('lists', [
-    about_hows,
-    about_slides,
-    about_whys,
     articles,
+    home_hows,
+    home_slides,
+    home_whys,
     services,
     services_sections,
 ])
