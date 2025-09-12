@@ -258,7 +258,7 @@
 
     function auto () {
         timeout && clearTimeout(timeout);
-        timeout = setTimeout(() => move(1), 4000);
+        timeout = setTimeout(() => move(1), 5000);
     }
 
     function enable () {

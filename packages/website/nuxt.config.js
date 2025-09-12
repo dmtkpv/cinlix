@@ -16,18 +16,11 @@ export default {
 
     compatibilityDate: '2025-07-15',
     devtools: { enabled: false },
-
     srcDir: 'client/',
 
     runtimeConfig: {
         public: {
             BACKEND_URL,
-        }
-    },
-
-    nitro: {
-        output: {
-            dir: 'caddy/output'
         }
     },
 
@@ -40,9 +33,25 @@ export default {
         dirs: ['app']
     },
 
+    plugins: [
+        '~/main.js',
+    ],
+
     modules: [
         '@nuxtjs/google-fonts',
         '@nuxt/icon'
+    ],
+
+    css: [
+        '~/styles/base.scss',
+        '~/styles/modules.scss',
+    ],
+
+    components: [
+        '~/inputs',
+        '~/layout',
+        '~/sections',
+        '~/ui',
     ],
 
     googleFonts: {
@@ -59,17 +68,11 @@ export default {
         ],
     },
 
-    css: [
-        '~/styles/base.scss',
-        '~/styles/modules.scss',
-    ],
-
-    components: [
-        '~/inputs',
-        '~/layout',
-        '~/sections',
-        '~/ui',
-    ],
+    nitro: {
+        output: {
+            dir: 'caddy/output'
+        }
+    },
 
     vite: {
         css: {
