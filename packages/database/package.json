@@ -15,6 +15,7 @@
     "#root/*": "./*"
   },
   "exports": {
-    ".": "./knexfile.js"
+    ".": "./knexfile.js",
+    "./directus/*": "./directus/*"
   }
 }

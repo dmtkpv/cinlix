@@ -1,4 +1,5 @@
-import build from '@this/website/build'
+import { exec } from 'child_process';
+import Collections from '@this/database/directus/collections.js'
 
 
 
@@ -7,16 +8,7 @@ import build from '@this/website/build'
 // ------------------
 
 const { NODE_ENV } = process.env;
-
-const collections = [
-    'About',
-    'Articles',
-    'Contact',
-    'Services',
-    'articles',
-    'services',
-    'errors',
-]
+const collections = Collections.filter(c => !c.options.hidden && c.options.group).map(c => c.options.collection);
 
 
 
@@ -27,19 +19,24 @@ const collections = [
 let building = false;
 let rebuild = false;
 
-async function debounce () {
+function debounce () {
+
     rebuild = true;
     if (building) return;
     building = true;
     rebuild = false;
-    const start = Date.now();
-    console.log('BUILD:START')
-    await build().catch(console.error);
-    console.log('BUILD:END', Date.now() - start)
-    building = false;
-    if (rebuild) debounce();
-}
 
+    const start = Date.now();
+    console.log('BUILD START')
+
+    exec('pnpm --filter @this/website generate', (err, stdout, stderr) => {
+        console.log('BUILD END:', Date.now() - start)
+        if (err) console.log('BUILD ERROR:', err);
+        building = false;
+        if (rebuild) debounce();
+    });
+
+}
 
 
 
