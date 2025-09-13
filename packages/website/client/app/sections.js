@@ -4,7 +4,8 @@ export const SECTION_WHY = {
     columns: 3,
     maxWidth: 320,
     image: {
-        ratio: 3 / 2
+        ratio: 1,
+        bg: 'none'
     },
 }
 
