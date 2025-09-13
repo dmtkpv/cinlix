@@ -12,7 +12,6 @@
         img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
             opacity: 0;
             transition: opacity .3s;
             &._loaded { opacity: 1 }
@@ -32,6 +31,7 @@
         <img ref="$img"
              :src="src"
              :class="{ _loaded }"
+             :style="{ objectFit: fit }"
              @load="_loaded = true"
         >
     </div>
@@ -48,6 +48,10 @@
     const props = defineProps({
         value: String,
         bg: String,
+        fit: {
+            type: String,
+            default: 'cover'
+        },
         width: {
             type: String,
             default: '512'

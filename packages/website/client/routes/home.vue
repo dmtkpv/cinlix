@@ -8,6 +8,12 @@
         padding-top: 0;
     }
 
+    .zPPShT {
+        .ui-image {
+            padding: 24px;
+        }
+    }
+
 </style>
 
 
@@ -25,6 +31,7 @@
 
         <s-cols
             v-bind="SECTION_WHY"
+            class="zPPShT"
             title="Why Us"
             :value="DATA.why"
         />

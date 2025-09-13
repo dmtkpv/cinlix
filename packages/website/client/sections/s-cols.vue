@@ -86,10 +86,10 @@
 -->
 
 <template>
-    <l-section :container-class="['s-cols', ...classes]" :container-style="style" :style="{ background: bg }">
+    <l-section :container-class="['s-cols', ...classes]" :container-style="styleContainer" :style="{ background: bg }">
         <component v-for="item in value" :is="item.path ? 'router-link' : 'article'" :to="item.path">
 
-            <ui-image :value="item.image" :style="image" :bg="props.image.bg" />
+            <ui-image :value="item.image" :style="styleImage" :bg="image.bg" :fit="image.fit"/>
             <h3>{{ item.title }}</h3>
             <p>{{ item.description }}</p>
 
@@ -118,14 +118,14 @@
         return props.modifiers?.map(modifier => `_${modifier}`) ?? [];
     })
 
-    const style = computed(() => {
+    const styleContainer = computed(() => {
         const w = props.maxWidth ? `minmax(0, ${props.maxWidth}px)` : '1fr';
         return {
             gridTemplateColumns: `repeat(${props.columns}, ${w})`
         }
     })
 
-    const image = computed(() => {
+    const styleImage = computed(() => {
         const size = props.image.size ? `${props.image.size}px` : undefined;
         return {
             width: size,
