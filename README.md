@@ -1,21 +1,72 @@
-icons  
-https://icon-sets.iconify.design/ri/
-
-pnpm directus bootstrap
-pnpm directus build (watch)
-pnpm database migrate:latest (up, down)
-pnpm database seed
-
+# Cinlix
+**Technologies**: Docker, PNPM, Caddy, PostgreSQL, Directus CMS, Nuxt SSG  
+Icons: https://icon-sets.iconify.design/ri/
 
 ## TODO
-- caddy: serve 404
 - server: reboot (docker + swap)
 - README: how to add swap on reboot
 - Docker: restart always
 
 
+## PNPM Scripts
 
-## Installation
+| Script                                           | Description                                                  |
+|--------------------------------------------------|--------------------------------------------------------------|
+| `pnpm database seed`                             | Seed the database                                            |
+| `pnpm database migrate:up`                       | Apply migration                                              |
+| `pnpm database migrate:down`                     | Undo migration                                               |
+| `pnpm database migrate:latest`                   | Apply all migrations                                         |
+| `pnpm directus bootstrap`                        | Install Directus system tables                               |
+| `pnpm directus serve`                            | Run Directus                                                 |
+| `pnpm directus build`                            | Build Directus extensions                                    |
+| `pnpm directus watch`                            | Build Directus extensions and rebuild when something changes |
+| `pnpm website dev`                               | Run website in development mode                              |
+| `pnpm website build`                             | Build website                                                |
+
+
+## Development
+
+### Installation
+```shell
+
+# clone the repo
+git clone https://github.com/dmtkpv/cinlix.git
+
+# edit env variables
+cd cinlix
+cp example.env .env
+vi .env # change CADDY_PORT to 49023
+
+# run containers
+docker compose up dev --build
+
+# run directus (in a new terminal tab)
+docker compose exec dev sh
+pnpm install
+pnpm directus build
+pnpm directus bootstrap
+pnpm database migrate:latest
+pnpm database seed
+pnpm directus serve 
+
+# run website (in a new terminal tab)
+docker compose exec dev sh
+pnpm website dev
+
+# Open in browser
+# http://localhost:49021 - Directus CMS
+# http://localhost:49022 - Website (development version)
+# http://localhost:49023 - Website (production version)
+```
+
+### Updating database  
+- create a migration in `./packages/database/migration`
+- apply migration by running `pnpm database migrate:up`
+- configure Directus field in `./packages/database/directus/collections`
+- apply Directus configuration by running `pnpm database seed`
+
+
+## Installation on VPS
 
 ### Clone the repo
 #### 1. Connect to the instance
