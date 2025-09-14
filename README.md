@@ -1,5 +1,5 @@
 # Cinlix
-**Technologies**: Docker, PNPM, Caddy, PostgreSQL, Directus CMS, Nuxt SSG  
+Simple static website powered by Docker, PNPM, Caddy, PostgreSQL, Directus CMS, Nuxt  
 Icons: https://icon-sets.iconify.design/ri/
 
 ## TODO
