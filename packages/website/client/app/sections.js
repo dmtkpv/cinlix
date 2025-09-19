@@ -11,7 +11,7 @@ export const SECTION_WHY = {
 }
 
 export const SECTION_HOW = {
-    columns: 4,
+    columns: 3,
     bg: styles.grayLight,
     modifiers: ['center'],
     image: {
