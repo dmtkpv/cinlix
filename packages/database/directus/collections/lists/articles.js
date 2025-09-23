@@ -24,6 +24,9 @@ export default {
         image: Fields.image({
             required: true,
         }),
+        description: Fields.text({
+            required: true,
+        }),
         content: Fields.wysiwyg({
             required: true,
         }),
@@ -32,6 +35,7 @@ export default {
     presets: [
         'image',
         'title',
+        'description',
         'publish_date'
     ]
 

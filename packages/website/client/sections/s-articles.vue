@@ -23,28 +23,37 @@
         }
 
         .ui-image {
-            aspect-ratio: 2 / 1;
+            height: 240px;
             mask-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 100%);
         }
 
         &_text {
-            position: absolute;
-            inset: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            text-align: center;
+            justify-content: flex-end;
             color: $white;
+            padding: 48px;
 
             h3 {
                 font-size: 32px;
                 font-weight: 800;
+                margin-bottom: 16px;
             }
 
         }
 
+        &_more {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            color: $amber;
+        }
+
 
     }
+
+
 
 </style>
 
@@ -63,6 +72,11 @@
             <div class="s-articles_text">
                 <span>{{ item.date }}</span>
                 <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+                <div class="s-articles_more">
+                    Read more
+                    <icon name="ri:arrow-right-long-line" />
+                </div>
             </div>
 
         </nuxt-link>
@@ -78,6 +92,7 @@
 <script setup>
 
     import LSection from "../layout/l-section.vue";
+    import UiButton from "../ui/ui-button.vue";
 
     defineProps({
         value: Array
