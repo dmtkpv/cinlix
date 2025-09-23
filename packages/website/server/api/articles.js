@@ -12,7 +12,8 @@ export default defineEventHandler(async (event) => {
 
 
     const articles = await knex('v_articles')
-        .orderBy('created_at', 'desc')
+        .orderBy('date', 'desc')
+        .orderBy('id', 'desc')
         .select([
             'id',
             'path',

@@ -5,7 +5,7 @@
 export async function up (knex) {
 
     await knex.schema.alterTable('articles', table => {
-        table.date('date').notNullable().defaultTo(knex.raw('CURRENT_DATE'));
+        table.date('publish_date').notNullable().defaultTo(knex.raw('CURRENT_DATE'));
     })
 
 }
@@ -19,7 +19,7 @@ export async function up (knex) {
 export async function down (knex) {
 
     await knex.schema.alterTable('articles', table => {
-        table.dropColumn('date');
+        table.dropColumn('publish_date');
     })
 
 }

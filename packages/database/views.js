@@ -60,7 +60,7 @@ export default {
             SELECT 
                 articles.*,
                 "Articles".path || '/' || articles.slug AS path,
-                to_char(articles.created_at, 'DD Mon YYYY') AS date
+                to_char(articles.publish_date, 'Month DD, YYYY') AS date
             FROM articles
             INNER JOIN "Articles" ON "Articles".name = articles.page
         `

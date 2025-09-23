@@ -18,7 +18,7 @@ export default {
             required: true,
             width: 'half'
         }),
-        date: Fields.datetime({
+        publish_date: Fields.datetime({
             width: 'half'
         }),
         image: Fields.image({
@@ -32,7 +32,7 @@ export default {
     presets: [
         'image',
         'title',
-        'date'
+        'publish_date'
     ]
 
 };
