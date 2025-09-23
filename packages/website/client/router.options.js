@@ -15,7 +15,7 @@ export default {
             {
                 name: 'About',
                 path: PAGES.About.path,
-                component: Error
+                component: () => import('~/routes/about.vue')
             },
             {
                 name: 'Contact',

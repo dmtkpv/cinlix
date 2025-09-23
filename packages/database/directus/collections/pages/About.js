@@ -22,6 +22,9 @@ export default {
         image: Fields.image({
             required: true,
         }),
+        content: Fields.wysiwyg({
+            required: true,
+        }),
     },
 
 };
