@@ -4,7 +4,9 @@
 
 <style lang="scss">
 
-    
+    .s-wysiwyg p {
+        margin: 1em;
+    }
 
 </style>
 
@@ -16,7 +18,7 @@
 
 <template>
     <l-section class="s-wysiwyg">
-        {{ value }}
+        <div v-html="value" />
     </l-section>
 </template>
 

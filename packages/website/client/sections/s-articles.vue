@@ -4,14 +4,10 @@
 
 <style lang="scss">
 
-    .fABlRU {
-        padding-block: 0;
-    }
-
     .s-articles {
 
         display: grid;
-        background: linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.8));
+        gap: 32px;
 
         @include lg-md {
             grid-template-columns: 1fr 1fr;
@@ -64,7 +60,7 @@
 -->
 
 <template>
-    <l-section class="fABlRU" container-class="s-articles" full>
+    <l-section container-class="s-articles">
         <nuxt-link v-for="item in value" :to="item.path">
 
             <ui-image :value="item.image" bg="none" />
