@@ -87,7 +87,12 @@ export default {
         return merge({
             interface: 'datetime',
             display: 'datetime',
-            display_options: { relative: true }
+            options: {
+                format: 'short'
+            },
+            display_options: {
+                format: 'short'
+            }
         }, config)
     },
 

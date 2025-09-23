@@ -11,12 +11,14 @@ export default {
         page: Fields.input({
             hidden: true
         }),
+        slug: Fields.input({
+            hidden: true
+        }),
         title: Fields.input({
             required: true,
             width: 'half'
         }),
-        slug: Fields.input({
-            readonly: true,
+        date: Fields.datetime({
             width: 'half'
         }),
         image: Fields.image({
@@ -29,7 +31,8 @@ export default {
 
     presets: [
         'image',
-        'title'
+        'title',
+        'date'
     ]
 
 };
