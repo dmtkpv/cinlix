@@ -68,12 +68,6 @@ export default {
         ],
     },
 
-    nitro: {
-        output: {
-            dir: 'caddy/output'
-        }
-    },
-
     vite: {
         css: {
             preprocessorOptions: {
