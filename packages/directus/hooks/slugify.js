@@ -1,4 +1,22 @@
-import slugify from 'slugify'
+// -------------------
+// Helpers
+// -------------------
+
+function slugify(str) {
+    return str
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '') // remove accents
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+}
+
+
+
+// -------------------
+// Hooks
+// -------------------
 
 export default ({ filter }) => {
 
