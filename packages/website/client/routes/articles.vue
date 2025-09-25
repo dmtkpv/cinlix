@@ -23,6 +23,7 @@
         />
 
         <s-articles
+            small
             :value="DATA.articles"
         />
 

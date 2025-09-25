@@ -19,8 +19,7 @@ export default defineEventHandler(async (event) => {
             'path',
             'date',
             'title',
-            'image',
-            'description',
+            'image'
         ])
 
     return {
