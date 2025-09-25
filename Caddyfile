@@ -1,3 +1,7 @@
+admin.cinlix.com {
+    reverse_proxy prod:${BACKEND_PORT}
+}
+
 cinlix.com, www.cinlix.com {
 
     root * /www/public
