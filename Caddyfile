@@ -1,5 +1,5 @@
 admin.cinlix.com {
-    reverse_proxy prod:${BACKEND_PORT}
+    reverse_proxy prod:49021
 }
 
 cinlix.com, www.cinlix.com {
