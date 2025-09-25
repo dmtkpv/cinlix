@@ -73,7 +73,8 @@ services:
   caddy:
     image: caddy:2-alpine
     ports:
-      - ${CADDY_PORT}:80
+      - ${CADDY_PORT_HTTP}:80
+      - ${CADDY_PORT_HTTPS}:443
     volumes:
       - caddy:/www
       - ./Caddyfile:/etc/caddy/Caddyfile
