@@ -22,7 +22,7 @@ export const SECTION_HOW = {
 }
 
 export const SECTION_SERVICES = {
-    columns: 2,
+    columns: 1,
     modifiers: ['center', 'service'],
     image: {
         ratio: 1,

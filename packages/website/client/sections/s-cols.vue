@@ -60,6 +60,9 @@
         // -----------------
 
         &._service {
+
+            max-width: 1100px;
+
             @include sm {
                 gap: 32px;
             }
@@ -68,7 +71,7 @@
         &._service > * {
             border: 1px solid $gray;
             padding: 32px 32px 84px 32px;
-            &:nth-child(4n-3), &:nth-child(4n) {
+            &:nth-child(2n) {
                 background: $gray-light;
             }
         }
