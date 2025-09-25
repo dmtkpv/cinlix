@@ -1,5 +1,7 @@
 volumes:
   caddy:
+  caddy_data:
+  caddy_config:
   database:
   pnpm_store:
 services:
@@ -77,6 +79,8 @@ services:
       - ${CADDY_PORT_HTTPS}:443
     volumes:
       - caddy:/www
+      - caddy_data:/data
+      - caddy_config:/config
       - ./Caddyfile:/etc/caddy/Caddyfile
     env_file:
       - .env
