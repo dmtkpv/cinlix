@@ -1,4 +1,4 @@
-:80 {
+cinlix.com, www.cinlix.com {
 
     root * /www/public
     encode gzip
