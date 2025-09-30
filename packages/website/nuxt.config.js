@@ -1,16 +1,7 @@
-// ------------------
-// Variables
-// ------------------
-
 const {
     FRONTEND_PORT,
     BACKEND_URL
 } = process.env;
-
-
-// ------------------
-// Exports
-// ------------------
 
 export default {
 
