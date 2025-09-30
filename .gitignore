@@ -10,6 +10,6 @@ packages/website/.nuxt
 packages/website/.output
 packages/website/dist
 packages/website/node-compile-cache
-packages/website/caddy/*
-!packages/website/caddy/.gitkeep
+
+caddy/public
 

@@ -1,8 +1,4 @@
-http://admin.cinlix.com {
-    reverse_proxy prod:49021
-}
-
-http://cinlix.com, http://www.cinlix.com {
+(website) {
 
     root * /www/public
     encode gzip

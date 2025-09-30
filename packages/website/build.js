@@ -20,7 +20,7 @@ await buildNuxt(nuxt);
 await knex.destroy();
 
 const distDir = join(nuxt._nitro.options.output.dir, 'public');
-const caddyDir = join(root, 'caddy');
+const caddyDir = join(root, '../../caddy');
 const tempDir = join(caddyDir, 'temp');
 const publicDir = join(caddyDir, 'public');
 const backupDir = join(caddyDir, 'backup');

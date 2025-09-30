@@ -1,5 +1,4 @@
 volumes:
-  caddy:
   caddy_data:
   caddy_config:
   database:
@@ -56,7 +55,7 @@ services:
       - ${BACKEND_PORT}:${BACKEND_PORT}
     volumes:
       - pnpm_store:${PNPM_DIR}
-      - caddy:/app/packages/website/caddy
+      - ./caddy:/app/caddy
       - ./packages/directus/uploads:/app/packages/directus/uploads
     env_file:
       - .env
@@ -74,14 +73,17 @@ services:
 
   caddy:
     image: caddy:2-alpine
+    environment:
+      BACKEND: prod:${BACKEND_PORT}
     ports:
       - ${CADDY_PORT_HTTP}:80
       - ${CADDY_PORT_HTTPS}:443
     volumes:
-      - caddy:/www
+      - ${CADDY_FILE}:/etc/caddy/Caddyfile
+      - ./caddy/common:/etc/caddy/common
+      - ./caddy:/www
       - caddy_data:/data
       - caddy_config:/config
-      - ./Caddyfile:/etc/caddy/Caddyfile
     env_file:
       - .env
 

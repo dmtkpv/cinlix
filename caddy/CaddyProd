@@ -1,0 +1,9 @@
+import common
+
+admin.cinlix.com {
+    reverse_proxy ${BACKEND}
+}
+
+cinlix.com, www.cinlix.com {
+  import website
+}
